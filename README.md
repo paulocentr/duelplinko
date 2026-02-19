@@ -1,6 +1,6 @@
 # Technical Security Audit of Duel.com Plinko
 
-**Audit Conducted By:** Provably Fair Organization (PF.org)\
+**Audit Conducted By:** [ProvablyFair.org](https://www.provablyfair.org)\
 **Date:** February 17, 2026\
 **Game:** Plinko (Original)\
 **Platform:** [duel.com](https://duel.com)\

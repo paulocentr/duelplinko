@@ -2,7 +2,7 @@
 
 ## Overview
 
-This report presents the findings of a comprehensive security audit of Duel.com's Plinko game, conducted by Provably Fair Organization (PF.org) in February 2026. The audit assessed the cryptographic integrity, outcome determinism, payout correctness, and overall fairness of the platform's Plinko implementation.
+This report presents the findings of a comprehensive security audit of Duel.com's Plinko game, conducted by [ProvablyFair.org](https://www.provablyfair.org) in February 2026. The audit assessed the cryptographic integrity, outcome determinism, payout correctness, and overall fairness of the platform's Plinko implementation.
 
 Duel.com operates a centralized provably fair casino platform offering original games including Plinko, Dice, Blackjack, Crash, Mines, Beef, Keno, and Castle Roulette. The platform is operated by Immortal Snail LLC (Nevis, West Indies) under license No. ALSI-202411026-FI1 from the Government of the Autonomous Island of Anjouan, Union of Comoros. The platform accepts cryptocurrency deposits and uses USDT as its primary wagering currency.
 
