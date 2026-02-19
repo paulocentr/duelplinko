@@ -9,9 +9,7 @@
 
 ---
 
-{% hint style="success" %}
-**Verdict:** Duel.com's Plinko implementation passes all provable fairness criteria. Every bet outcome is cryptographically deterministic, independently reproducible, and protected by a commit-reveal scheme that prevents outcome manipulation after a wager is placed.
-{% endhint %}
+> **Verdict:** Duel.com's Plinko implementation passes all provable fairness criteria. Every bet outcome is cryptographically deterministic, independently reproducible, and protected by a commit-reveal scheme that prevents outcome manipulation after a wager is placed.
 
 | Metric | Value |
 |--------|-------|

@@ -35,21 +35,19 @@
 
 ## Final Verdict
 
-{% hint style="success" %}
-**PROVABLY FAIR — Full Pass**
-
-Duel.com's Plinko game satisfies all criteria for provable fairness:
-
-- The random number generation uses cryptographically secure HMAC-SHA256 with zero modulo bias
-- The commit-reveal protocol is correctly implemented and prevents outcome manipulation
-- 1,070 out of 1,070 verifiable bet outcomes match our independent computation (100%)
-- 1,080 out of 1,080 payouts are mathematically exact
-- Statistical distribution analysis shows no evidence of bias or non-randomness
-- Multiplier tables are deterministic and consistent across all observations
-- Nonce sequences are continuous with no gaps or duplicates
-
-Players can independently verify every bet outcome using the four inputs (server seed, client seed, nonce, rows) and the algorithm published on the platform's fairness page.
-{% endhint %}
+> **PROVABLY FAIR — Full Pass**
+>
+> Duel.com's Plinko game satisfies all criteria for provable fairness:
+>
+> - The random number generation uses cryptographically secure HMAC-SHA256 with zero modulo bias
+> - The commit-reveal protocol is correctly implemented and prevents outcome manipulation
+> - 1,070 out of 1,070 verifiable bet outcomes match our independent computation (100%)
+> - 1,080 out of 1,080 payouts are mathematically exact
+> - Statistical distribution analysis shows no evidence of bias or non-randomness
+> - Multiplier tables are deterministic and consistent across all observations
+> - Nonce sequences are continuous with no gaps or duplicates
+>
+> Players can independently verify every bet outcome using the four inputs (server seed, client seed, nonce, rows) and the algorithm published on the platform's fairness page.
 
 ## Caveats and Transparency Notes
 

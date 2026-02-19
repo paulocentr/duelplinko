@@ -66,9 +66,7 @@ Empirical RTP across our 1,080-bet dataset was 104.08%, which reflects normal sh
 
 ## Overall Verdict
 
-{% hint style="success" %}
-**PROVABLY FAIR — Full Pass.** Duel.com's Plinko game satisfies all criteria for provable fairness. The commit-reveal protocol is correctly implemented, outcomes are cryptographically deterministic, payouts are mathematically accurate, and statistical distribution analysis reveals no evidence of manipulation. Players can independently verify every bet outcome using the algorithm published on the platform's fairness page.
-{% endhint %}
+> **PROVABLY FAIR — Full Pass.** Duel.com's Plinko game satisfies all criteria for provable fairness. The commit-reveal protocol is correctly implemented, outcomes are cryptographically deterministic, payouts are mathematically accurate, and statistical distribution analysis reveals no evidence of manipulation. Players can independently verify every bet outcome using the algorithm published on the platform's fairness page.
 
 ### Trust Considerations
 
