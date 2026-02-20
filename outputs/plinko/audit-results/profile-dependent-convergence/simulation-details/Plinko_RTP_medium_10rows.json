@@ -1,0 +1,154 @@
+{
+  "simulationDescription": "Plinko RTP – medium Risk, 10 Rows",
+  "totalRounds": 200000,
+  "simulatedRTP": 0.9908579999998177,
+  "theoreticalRTP": 0.9911560058593751,
+  "simulatedTheoreticalRTPDifference": 0.0002980058595574153,
+  "winCounts": 200000,
+  "lossCounts": 0,
+  "winLossRatio": 1,
+  "simulationRunTimeInMs": 680631,
+  "lastCommitHash": "",
+  "seeds": [
+    {
+      "hashedServerSeed": "5548792213b9af3a3cd236cc0e0d4ca7e4bcf0955dccc2501f2ac76f77fd82c1",
+      "serverSeed": "b6d2bb3df73995fd53a4f836b0db0e4b5ff61fec6155cda3d6e55d4bc866a585",
+      "clientSeed": "Gr4P3dnsnC"
+    },
+    {
+      "hashedServerSeed": "c1722335a7b13bd1822b121bf4a7ae6a42f0b4fe73b02d03bce0b21c2aab4d44",
+      "serverSeed": "21fd096a41e76bc0eafed23184ee711b65769af3007339a0a2fcf4c2efc849eb",
+      "clientSeed": "Y9yByIltIt"
+    },
+    {
+      "hashedServerSeed": "395af7ac8523f2a45180f2c325b0aa2cdcc56fc2fb316fb298e45770532deb59",
+      "serverSeed": "add9684a61776ed3244a43cc16c5f39900118c3e8ebcc389892839f3bec55bc9",
+      "clientSeed": "9clrOWvXBm"
+    },
+    {
+      "hashedServerSeed": "ab11e6e2b6e2732fe4688bd8254f0775b3682f430b1f247cfe8f3f04350fda51",
+      "serverSeed": "078e2ee71fb6e8726e088299e78afec95ee993c8aa0ee9b6340a2eaf63f5f0af",
+      "clientSeed": "qAp3aUTNcx"
+    },
+    {
+      "hashedServerSeed": "2f887acb0a9f3eb48dc6c9d4aaa8d8de7a5eb2ddcd48f13d07dab5bb3f85fd2c",
+      "serverSeed": "daba817998d0029801b9ad81dbcf1107ccef8b03f3a9a8af6cea8dda2d1d0721",
+      "clientSeed": "q9r04w4JZW"
+    },
+    {
+      "hashedServerSeed": "df8eaaaab7f0c562a6dadef04da5c0f646e321b2b8b632a57d0b61ad91f31eff",
+      "serverSeed": "9802a41714f9c2408732dd485160735d583d52d7db0c51efbea16b5dd44a4dfd",
+      "clientSeed": "uyjicBdR1U"
+    },
+    {
+      "hashedServerSeed": "176b15de1d240c045d691265dc70c820110f0692fecdda3ee0da4bdb938be04b",
+      "serverSeed": "55dc9904237214dcaeb89e3ac982c59cbdfcb58a21a50cd3681c050f16266ca9",
+      "clientSeed": "VHwLHYdnBe"
+    },
+    {
+      "hashedServerSeed": "7c57b9a7226696e93212fd66a317daf55a8fe720fbd99b08e75254278efb37de",
+      "serverSeed": "778bf7c6fb41f810a5d59c73db96f762ebd3f8f22b442ad739684ed67147f759",
+      "clientSeed": "6kk8FuUq0C"
+    },
+    {
+      "hashedServerSeed": "7d479c3fcabc0b8e1010ec675d9672312df76b5a39d19d696c0094ba4dd0fb48",
+      "serverSeed": "ab35ce31c8d4cbdfc27e15ce0329d598a93eda9f4d182d543fbebc545643ac81",
+      "clientSeed": "Yo99bLPYMy"
+    },
+    {
+      "hashedServerSeed": "bd88fe88ae6def5c03d13680cb7977edb10f7b3c54ddee77f522ea8a63270724",
+      "serverSeed": "a7e70b17ec817ed40ddf94170e9190e1af3f6ffdc9c659abbac1dccd729819e7",
+      "clientSeed": "bX29GQweDp"
+    },
+    {
+      "hashedServerSeed": "c286b087c3ad0b7dd6658e813c62f361bebbb54f716e80ce6417a08e41364820",
+      "serverSeed": "dfc8cc47e2f9ebc89432e498da332bdf44841a996082784f2802d2939ce75dc6",
+      "clientSeed": "hOeRCQuRaG"
+    },
+    {
+      "hashedServerSeed": "7151319e795e5fa47e00b5edd3075b5a8292037f8306195c5d86e1f6f8ab3f60",
+      "serverSeed": "0bd27bc4e37f94783ebff90a108b88ce63412931f9ae824c366d6b4cfcf41cde",
+      "clientSeed": "JcDxBdzXzy"
+    },
+    {
+      "hashedServerSeed": "e26381a1e88e7b423ccec56cefc609c257ac0711b9a719c7991c4d3bea326141",
+      "serverSeed": "4df7d2585fe58a1a199686df741371455e29d3aa45232554ca199465cf4dd9b8",
+      "clientSeed": "uxTLnoMW8z"
+    },
+    {
+      "hashedServerSeed": "ca7ab5c8630a1eb9753f3457bdbff1d4788f1af4adb295679c391b0a478a2f9c",
+      "serverSeed": "8e17e100fedcd4c0605a46feb62d87c551c6a6cba18b23f8f1d9784fb183d0fd",
+      "clientSeed": "gshKVZv4wO"
+    },
+    {
+      "hashedServerSeed": "624acd4bd880827f054e9e6467d87bc52298baaa450a9d61a656b9cb1a55e6b1",
+      "serverSeed": "cff01a887203714efbcd681fe647ab7cae7ec2baa69abc81cc3944101a7fe672",
+      "clientSeed": "ed54LgAcW6"
+    },
+    {
+      "hashedServerSeed": "7d2787ea26200eb26c5bd16d40a15890a97b051bde533d739bb8f5f6cf96c302",
+      "serverSeed": "9f5cb93076ad2e2c08d3e16aec999d10d08df295b2ee1eeeef134302399ce9ba",
+      "clientSeed": "z18nKm7Mae"
+    },
+    {
+      "hashedServerSeed": "f1db529b12524b338f0baccb8fdfed118887398b547476ecde1c6e34315657fa",
+      "serverSeed": "eeb63e0ee1071d5e4e04a221c4a41c4d4da35aa74ddcbd7c6e3cbaa2d263f9a3",
+      "clientSeed": "nrjQZGpnhh"
+    },
+    {
+      "hashedServerSeed": "022be721972c8a3121a9761bb82f0cdd82d638ba6768aadf8d661c58eada45c9",
+      "serverSeed": "164455519d57ce7df1ed1812035992132adff923117f2880cf8b13364a6e7c4f",
+      "clientSeed": "ScC9pnFTqw"
+    },
+    {
+      "hashedServerSeed": "de9492b07fdd15cbc7afbbba741707f376aa13c1b804fbb05152e8ad1d319ef4",
+      "serverSeed": "2d2bb2d367deb42aea6408b52cab63e05dd6e53300ecb8e346ff0bf651df4bd0",
+      "clientSeed": "WjjJf30gSF"
+    },
+    {
+      "hashedServerSeed": "9c9ab3a9aba253f1993e06b144176d43dd14a546320d50fd010554cc88909037",
+      "serverSeed": "c1f6eabaf7f39c7943e5e8c5c41a40c6052e74d113397e836b094b6c61f6d8b7",
+      "clientSeed": "vpUeqkLNyM"
+    },
+    {
+      "hashedServerSeed": "e6165819f7fe9808269d16e861018e56f2b15a9a083123286d18e14cffea4b74",
+      "serverSeed": "4353db7ecd68d594e6ce3663d5eb046c78310fd354fc393d39678489b05d3ea1",
+      "clientSeed": "AVGQMgTCv5"
+    },
+    {
+      "hashedServerSeed": "a938cb4fcd541aa36528991aa1dfd1c77ecf97e626a54fed34d53744f4164f67",
+      "serverSeed": "f3ecabb0e52522cab197a4f6fcb3ae6e791aa6885a8ebcc1dd43896f2b484496",
+      "clientSeed": "anzy9RGkPj"
+    },
+    {
+      "hashedServerSeed": "46ef628ce3c3adcc430a13583e7e10d99bc623c71bcce97c07c42f43255b1274",
+      "serverSeed": "b2bb2d46d4de43857f843cbdb0f1883c428b997097e66fb3f781623a566bece2",
+      "clientSeed": "gecRzTZ3bv"
+    },
+    {
+      "hashedServerSeed": "6b8c9ee679af1b0492a1af8651e77cecd7ff78554085ee1f7378d30a4258efdb",
+      "serverSeed": "a0016384117e3351cd99775551c96ed5425c06cc95c0036a83ba79e489200258",
+      "clientSeed": "hdzeEypMEL"
+    }
+  ],
+  "rtpConvergence": [
+    [
+      100000,
+      0.9904599999999386
+    ],
+    [
+      200000,
+      0.9908579999998177
+    ]
+  ],
+  "rtpConvergenceSD": [
+    [
+      100000,
+      0.003766075395421571
+    ],
+    [
+      200000,
+      0.002706756937587836
+    ]
+  ]
+}

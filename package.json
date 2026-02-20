@@ -1,0 +1,30 @@
+{
+  "name": "duel-plinko-audit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --spec tests/plinko/**/*.ts",
+    "generate-audit-files": "npm run generate-plinko-audit-files",
+    "generate-plinko-audit-files": "mocha --spec tests/plinko/**/*.ts --reporter mochawesome --reporter-options reportDir=outputs/plinko/audit-results,reportFilename=audit-results"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Provably fair audit of Duel.com Plinko game",
+  "devDependencies": {
+    "@types/chai": "^5.2.3",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^25.0.3",
+    "@types/sinon": "^21.0.0",
+    "mocha": "^11.7.5",
+    "mochawesome": "^7.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "chai": "^6.2.2",
+    "chart.js": "^4.5.1",
+    "chartjs-node-canvas": "^5.0.0",
+"sinon": "^21.0.1"
+  }
+}

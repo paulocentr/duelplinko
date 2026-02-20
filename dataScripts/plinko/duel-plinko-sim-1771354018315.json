@@ -1,0 +1,522 @@
+{
+  "meta": {
+    "schema": "duel-plinko-sim-v1",
+    "createdAt": "2026-02-17T18:46:58.000000Z",
+    "page": "https://duel.com/plinko",
+    "seedRotationReason": "Post-capture rotation to reveal server seed after collecting 26 bets across all 27 risk/row configurations",
+    "notes": "26 bets captured across all combinations: 3 risk levels × rows 8–16 (plus extra high-risk variants). Server seed revealed via /api/v2/user/transactions/{txId} after rotation."
+  },
+  "seeds": [
+    {
+      "at": "2026-02-17T19:13:30.000000Z",
+      "context": "post-rotation-reveal",
+      "phase": null,
+      "revealedFrom": {
+        "transactionId": 382170987,
+        "betId": 56117887
+      },
+      "seed": {
+        "clientSeed": "PH_NW_777fLkqsHC",
+        "serverSeedHashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "serverSeed": "4351b2c37e32c3575ccbcd51214ff1ca6da8b460dc15f9bb7930e0c753795204"
+      },
+      "nonce": 4
+    }
+  ],
+  "bets": [
+    {
+      "at": "2026-02-17T18:46:58.000000Z",
+      "phase": null,
+      "request": { "rows": 16, "risk": "high", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56117887,
+        "rows": 16,
+        "risk_level": "high",
+        "final_slot": 8,
+        "payout_multiplier": "0.20186622",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.002019672036018004",
+        "nonce": 4,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:47:17.000000Z",
+      "phase": null,
+      "request": { "rows": 8, "risk": "low", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118406,
+        "rows": 8,
+        "risk_level": "low",
+        "final_slot": 6,
+        "payout_multiplier": "1.11017522",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.011107305852926435",
+        "nonce": 5,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:47:28.000000Z",
+      "phase": null,
+      "request": { "rows": 12, "risk": "low", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118420,
+        "rows": 12,
+        "risk_level": "low",
+        "final_slot": 6,
+        "payout_multiplier": "0.50464999",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.005049024412206090",
+        "nonce": 6,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:47:40.000000Z",
+      "phase": null,
+      "request": { "rows": 16, "risk": "low", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118435,
+        "rows": 16,
+        "risk_level": "low",
+        "final_slot": 8,
+        "payout_multiplier": "0.50455199",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.005048043921960968",
+        "nonce": 7,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:47:51.000000Z",
+      "phase": null,
+      "request": { "rows": 8, "risk": "medium", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118452,
+        "rows": 8,
+        "risk_level": "medium",
+        "final_slot": 4,
+        "payout_multiplier": "0.40401896",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.004042210705352666",
+        "nonce": 8,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:48:03.000000Z",
+      "phase": null,
+      "request": { "rows": 10, "risk": "medium", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118466,
+        "rows": 10,
+        "risk_level": "medium",
+        "final_slot": 5,
+        "payout_multiplier": "0.40401896",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.004042210705352666",
+        "nonce": 9,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:48:15.000000Z",
+      "phase": null,
+      "request": { "rows": 14, "risk": "medium", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118483,
+        "rows": 14,
+        "risk_level": "medium",
+        "final_slot": 5,
+        "payout_multiplier": "1.00915064",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.010096554677338644",
+        "nonce": 10,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:48:27.000000Z",
+      "phase": null,
+      "request": { "rows": 16, "risk": "medium", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118490,
+        "rows": 16,
+        "risk_level": "medium",
+        "final_slot": 11,
+        "payout_multiplier": "1.51381462",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.015145719059529727",
+        "nonce": 11,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:48:39.000000Z",
+      "phase": null,
+      "request": { "rows": 8, "risk": "high", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118496,
+        "rows": 8,
+        "risk_level": "high",
+        "final_slot": 6,
+        "payout_multiplier": "1.51268139",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.015134381090545234",
+        "nonce": 12,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:48:51.000000Z",
+      "phase": null,
+      "request": { "rows": 10, "risk": "high", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118503,
+        "rows": 10,
+        "risk_level": "high",
+        "final_slot": 5,
+        "payout_multiplier": "0.20169085",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.002017917458729360",
+        "nonce": 13,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:49:03.000000Z",
+      "phase": null,
+      "request": { "rows": 12, "risk": "high", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118525,
+        "rows": 12,
+        "risk_level": "high",
+        "final_slot": 5,
+        "payout_multiplier": "0.20158156",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.002016824012005998",
+        "nonce": 14,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:49:15.000000Z",
+      "phase": null,
+      "request": { "rows": 14, "risk": "high", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118547,
+        "rows": 14,
+        "risk_level": "high",
+        "final_slot": 7,
+        "payout_multiplier": "0.20186249",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.002019634717358674",
+        "nonce": 15,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:49:27.000000Z",
+      "phase": null,
+      "request": { "rows": 16, "risk": "high", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118563,
+        "rows": 16,
+        "risk_level": "high",
+        "final_slot": 11,
+        "payout_multiplier": "2.01866221",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.020196720460230064",
+        "nonce": 16,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:50:10.000000Z",
+      "phase": null,
+      "request": { "rows": 9, "risk": "low", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118630,
+        "rows": 9,
+        "risk_level": "low",
+        "final_slot": 4,
+        "payout_multiplier": "0.70647514",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.007068285542771368",
+        "nonce": 17,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:50:22.000000Z",
+      "phase": null,
+      "request": { "rows": 13, "risk": "low", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118656,
+        "rows": 13,
+        "risk_level": "low",
+        "final_slot": 7,
+        "payout_multiplier": "0.70637060",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.007067239619809887",
+        "nonce": 18,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:50:34.000000Z",
+      "phase": null,
+      "request": { "rows": 14, "risk": "low", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118673,
+        "rows": 14,
+        "risk_level": "low",
+        "final_slot": 10,
+        "payout_multiplier": "1.31181495",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.013124711855927931",
+        "nonce": 19,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:50:46.000000Z",
+      "phase": null,
+      "request": { "rows": 15, "risk": "low", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118689,
+        "rows": 15,
+        "risk_level": "low",
+        "final_slot": 6,
+        "payout_multiplier": "1.00908220",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.010095869934967458",
+        "nonce": 20,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:50:58.000000Z",
+      "phase": null,
+      "request": { "rows": 9, "risk": "medium", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118701,
+        "rows": 9,
+        "risk_level": "medium",
+        "final_slot": 3,
+        "payout_multiplier": "0.90689362",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.009073472936468211",
+        "nonce": 21,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:51:10.000000Z",
+      "phase": null,
+      "request": { "rows": 11, "risk": "medium", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118713,
+        "rows": 11,
+        "risk_level": "medium",
+        "final_slot": 6,
+        "payout_multiplier": "0.50442604",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.005046783791895935",
+        "nonce": 22,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:51:22.000000Z",
+      "phase": null,
+      "request": { "rows": 12, "risk": "medium", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118732,
+        "rows": 12,
+        "risk_level": "medium",
+        "final_slot": 8,
+        "payout_multiplier": "1.11012046",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.011106757978989467",
+        "nonce": 23,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:51:34.000000Z",
+      "phase": null,
+      "request": { "rows": 13, "risk": "medium", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118748,
+        "rows": 13,
+        "risk_level": "medium",
+        "final_slot": 7,
+        "payout_multiplier": "0.40366025",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.004038621810905443",
+        "nonce": 24,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:51:46.000000Z",
+      "phase": null,
+      "request": { "rows": 15, "risk": "medium", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118762,
+        "rows": 15,
+        "risk_level": "medium",
+        "final_slot": 8,
+        "payout_multiplier": "0.30273213",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.003028835717858922",
+        "nonce": 25,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:51:58.000000Z",
+      "phase": null,
+      "request": { "rows": 9, "risk": "high", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118778,
+        "rows": 9,
+        "risk_level": "high",
+        "final_slot": 7,
+        "payout_multiplier": "2.01690852",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.020179174787393646",
+        "nonce": 26,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:52:10.000000Z",
+      "phase": null,
+      "request": { "rows": 11, "risk": "high", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118795,
+        "rows": 11,
+        "risk_level": "high",
+        "final_slot": 6,
+        "payout_multiplier": "0.20149222",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.002015930165082536",
+        "nonce": 27,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:52:22.000000Z",
+      "phase": null,
+      "request": { "rows": 13, "risk": "high", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118805,
+        "rows": 13,
+        "risk_level": "high",
+        "final_slot": 7,
+        "payout_multiplier": "0.20164116",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.002017420310155072",
+        "nonce": 28,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    },
+    {
+      "at": "2026-02-17T18:52:34.000000Z",
+      "phase": null,
+      "request": { "rows": 15, "risk": "high", "amount": "0.010005002501250600" },
+      "response": {
+        "id": 56118813,
+        "rows": 15,
+        "risk_level": "high",
+        "final_slot": 9,
+        "payout_multiplier": "0.20176420",
+        "amount_currency": "0.010005002501250600",
+        "win_amount": "0.002018651325662826",
+        "nonce": 29,
+        "drand_round": null,
+        "drand_randomness": null,
+        "server_seed_hashed": "5e4ab1ccd0fd3a6a4fc9a3bf9dd35e5222f99c418fdb94b5c3c8813bd98a41f5",
+        "client_seed": "PH_NW_777fLkqsHC"
+      }
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "game": "plinko",
+    "commit": "",
+    "generatedAt": "2026-02-18T01:18:45.822Z",
+    "totalRounds": 5400000,
+    "executionTimeMs": 680631,
+    "aggregateSimulatedRTP": 0.9883702962968126,
+    "aggregateTheoreticalRTP": 0.991156005859375,
+    "aggregateDeviation": -0.0027857095625624106
+  },
+  "modes": [
+    {
+      "mode": "low_8rows",
+      "simulatedRTP": 0.9906120000010116,
+      "sampleSize": 200000,
+      "stdError": 0.001268491161687771,
+      "theoreticalRTP": 0.9906250000000001,
+      "deviation": -0.000012999998988516559
+    },
+    {
+      "mode": "low_9rows",
+      "simulatedRTP": 0.9908500000017828,
+      "sampleSize": 200000,
+      "stdError": 0.001046363410818633,
+      "theoreticalRTP": 0.990234375,
+      "deviation": 0.0006156250017828047
+    },
+    {
+      "mode": "low_10rows",
+      "simulatedRTP": 0.9906415000005215,
+      "sampleSize": 200000,
+      "stdError": 0.001184154484173725,
+      "theoreticalRTP": 0.990234375,
+      "deviation": 0.00040712500052153544
+    },
+    {
+      "mode": "low_11rows",
+      "simulatedRTP": 0.9907415000005648,
+      "sampleSize": 200000,
+      "stdError": 0.0009960176458721698,
+      "theoreticalRTP": 0.99013671875,
+      "deviation": 0.0006047812505648453
+    },
+    {
+      "mode": "low_12rows",
+      "simulatedRTP": 0.9904505000005751,
+      "sampleSize": 200000,
+      "stdError": 0.0008727890840568303,
+      "theoreticalRTP": 0.989794921875,
+      "deviation": 0.0006555781255751514
+    },
+    {
+      "mode": "low_13rows",
+      "simulatedRTP": 0.9895925000001484,
+      "sampleSize": 200000,
+      "stdError": 0.0010475930363069196,
+      "theoreticalRTP": 0.9900146484374999,
+      "deviation": -0.0004221484373514439
+    },
+    {
+      "mode": "low_14rows",
+      "simulatedRTP": 0.9897500000003477,
+      "sampleSize": 200000,
+      "stdError": 0.000709347014866485,
+      "theoreticalRTP": 0.9900146484375001,
+      "deviation": -0.0002646484371523483
+    },
+    {
+      "mode": "low_15rows",
+      "simulatedRTP": 0.9896105000016763,
+      "sampleSize": 200000,
+      "stdError": 0.0008898160155047468,
+      "theoreticalRTP": 0.99010009765625,
+      "deviation": -0.0004895976545736813
+    },
+    {
+      "mode": "low_16rows",
+      "simulatedRTP": 0.9898475000009529,
+      "sampleSize": 200000,
+      "stdError": 0.0007166295303144739,
+      "theoreticalRTP": 0.9900360107421875,
+      "deviation": -0.00018851074123460432
+    },
+    {
+      "mode": "medium_8rows",
+      "simulatedRTP": 0.9896734999996107,
+      "sampleSize": 200000,
+      "stdError": 0.002789031474721771,
+      "theoreticalRTP": 0.9890625,
+      "deviation": 0.000610999999610784
+    },
+    {
+      "mode": "medium_9rows",
+      "simulatedRTP": 0.9936714999991942,
+      "sampleSize": 200000,
+      "stdError": 0.0028953629306943144,
+      "theoreticalRTP": 0.99140625,
+      "deviation": 0.0022652499991941966
+    },
+    {
+      "mode": "medium_10rows",
+      "simulatedRTP": 0.9908579999998177,
+      "sampleSize": 200000,
+      "stdError": 0.002706756937587836,
+      "theoreticalRTP": 0.991015625,
+      "deviation": -0.00015762500018223768
+    },
+    {
+      "mode": "medium_11rows",
+      "simulatedRTP": 0.992478500000441,
+      "sampleSize": 200000,
+      "stdError": 0.002525053640061698,
+      "theoreticalRTP": 0.9913085937499999,
+      "deviation": 0.0011699062504411106
+    },
+    {
+      "mode": "medium_12rows",
+      "simulatedRTP": 0.9900725000016518,
+      "sampleSize": 200000,
+      "stdError": 0.002899088817838915,
+      "theoreticalRTP": 0.989892578125,
+      "deviation": 0.000179921876651834
+    },
+    {
+      "mode": "medium_13rows",
+      "simulatedRTP": 0.9898374999989619,
+      "sampleSize": 200000,
+      "stdError": 0.0029947895365064737,
+      "theoreticalRTP": 0.991845703125,
+      "deviation": -0.0020082031260381106
+    },
+    {
+      "mode": "medium_14rows",
+      "simulatedRTP": 0.9898735000001556,
+      "sampleSize": 200000,
+      "stdError": 0.0029679794507355903,
+      "theoreticalRTP": 0.99117431640625,
+      "deviation": -0.0013008164060943628
+    },
+    {
+      "mode": "medium_15rows",
+      "simulatedRTP": 0.9867394999985202,
+      "sampleSize": 200000,
+      "stdError": 0.0031898511008664333,
+      "theoreticalRTP": 0.9900451660156251,
+      "deviation": -0.0033056660171049135
+    },
+    {
+      "mode": "medium_16rows",
+      "simulatedRTP": 0.9876444999994932,
+      "sampleSize": 200000,
+      "stdError": 0.0029923817366938597,
+      "theoreticalRTP": 0.9899139404296875,
+      "deviation": -0.0022694404301942805
+    },
+    {
+      "mode": "high_8rows",
+      "simulatedRTP": 0.9933384999995595,
+      "sampleSize": 200000,
+      "stdError": 0.0060282859812792735,
+      "theoreticalRTP": 0.9906250000000001,
+      "deviation": 0.002713499999559388
+    },
+    {
+      "mode": "high_9rows",
+      "simulatedRTP": 0.9996165000025842,
+      "sampleSize": 200000,
+      "stdError": 0.0066809600368988075,
+      "theoreticalRTP": 0.9941406249999999,
+      "deviation": 0.005475875002584285
+    },
+    {
+      "mode": "high_10rows",
+      "simulatedRTP": 0.992276999998763,
+      "sampleSize": 200000,
+      "stdError": 0.008218875031070562,
+      "theoreticalRTP": 0.992578125,
+      "deviation": -0.0003011250012370237
+    },
+    {
+      "mode": "high_11rows",
+      "simulatedRTP": 0.9973419999995715,
+      "sampleSize": 200000,
+      "stdError": 0.00943489780947203,
+      "theoreticalRTP": 0.992578125,
+      "deviation": 0.004763874999571538
+    },
+    {
+      "mode": "high_12rows",
+      "simulatedRTP": 0.9961895000022281,
+      "sampleSize": 200000,
+      "stdError": 0.010036566427342044,
+      "theoreticalRTP": 0.994873046875,
+      "deviation": 0.0013164531272280566
+    },
+    {
+      "mode": "high_13rows",
+      "simulatedRTP": 0.9809220000017741,
+      "sampleSize": 200000,
+      "stdError": 0.010344988745744505,
+      "theoreticalRTP": 0.991357421875,
+      "deviation": -0.01043542187322588
+    },
+    {
+      "mode": "high_14rows",
+      "simulatedRTP": 0.9780460000003799,
+      "sampleSize": 200000,
+      "stdError": 0.01120270416504062,
+      "theoreticalRTP": 0.99197998046875,
+      "deviation": -0.013933980468370133
+    },
+    {
+      "mode": "high_15rows",
+      "simulatedRTP": 0.9614980000017346,
+      "sampleSize": 200000,
+      "stdError": 0.009098203365499118,
+      "theoreticalRTP": 0.9942626953125,
+      "deviation": -0.032764695310765424
+    },
+    {
+      "mode": "high_16rows",
+      "simulatedRTP": 0.9638235000019211,
+      "sampleSize": 200000,
+      "stdError": 0.009256374671232678,
+      "theoreticalRTP": 0.991961669921875,
+      "deviation": -0.02813816991995388
+    }
+  ]
+}
