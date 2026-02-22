@@ -36,32 +36,12 @@ GET /api/v2/plinko/multipliers?risk_level=2&rows=8
 → { "multipliers": [13.0, 3.0, 1.3, 0.7, 0.403..., 0.7, 1.3, 3.0, 13.0] }
 ```
 
-### 2. Implement Drand Integration
-
-The `drand_round` and `drand_randomness` fields in the API response are currently null. Integrating with the [drand](https://drand.love/) distributed randomness beacon would provide:
-
-- Publicly verifiable entropy for server seed generation
-- A timestamp-anchored proof that the seed was generated at a specific time
-- External assurance that the server seed is genuinely random (not chosen adversarially)
-
-This would be a meaningful upgrade to the trust model, particularly for high-stakes players who want assurance beyond the commit-reveal protocol.
-
-### 3. Implement a Commitment Transparency Log
-
-Consider publishing seed commitments to a public, append-only log — for example, a signed transparency log similar to Certificate Transparency, or even a periodic on-chain anchor. This would provide:
-
-- Permanent proof of what was committed, when
-- Protection against claims of retroactive commitment changes
-- Auditability for regulators and third-party fairness organizations
-
-The log need not be on a blockchain — a signed, timestamped RSS feed or a simple append-only API endpoint with Merkle tree authentication would suffice.
-
-### 4. Document the Effective Edge Mechanism
+### 2. Document the Effective Edge Mechanism
 
 The `effective_edge` field in API responses is a positive transparency feature, but it is not documented on the fairness page. Consider adding an explanation of:
 
 - What `effective_edge` means (the house margin applied to each bet)
 - How the 0.1% standard edge is implemented (through multiplier calibration)
-- How the "Zero Edge" promotional feature works (which bets receive 0% edge and why)
+- How the "Zero Edge" rakeback feature works (which bets receive 0% edge and why)
 
 This documentation would help players understand exactly how the house edge operates and verify it independently.

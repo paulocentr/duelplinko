@@ -97,7 +97,7 @@ Several fields merit attention:
 - `server_seed_hashed`: The SHA-256 hash of the active server seed, committed before betting begins. This is the cryptographic commitment that prevents post-bet manipulation.
 - `client_seed`: A string contributed by the player, incorporated into the HMAC computation. Players can set this to any value they choose.
 - `nonce`: An incrementing counter, unique per bet within a seed pair. Ensures each bet produces a different outcome even with the same seeds.
-- `effective_edge`: The house edge applied to this specific bet. Most bets show 0.1 (meaning 0.1% edge, or 99.9% RTP). Some show 0 (Duel's "Zero Edge" promotional feature).
+- `effective_edge`: The house edge applied to this specific bet. Most bets show 0.1 (meaning 0.1% edge, or 99.9% RTP). Some show 0 (Duel's "Zero Edge" rakeback feature).
 - `drand_round` and `drand_randomness`: Both null for Plinko. These fields exist for potential future integration with the drand distributed randomness beacon but are not currently used.
 
 ## Seed Management and Rotation
@@ -117,9 +117,9 @@ The seed lifecycle follows a standard commit-reveal protocol:
 10. Cycle repeats
 ```
 
-This protocol is the foundation of provable fairness. Because the server commits to the seed hash before the player bets, the server cannot change the seed after seeing the wager. Because the player contributes the client seed, the server cannot precompute favorable outcomes (assuming the client seed is non-trivial). **[Evidence: E12, E14]**
+This protocol is the foundation of provable fairness. Because the server commits to the seed hash before the player bets, the server cannot change the seed after seeing the wager. Because the player contributes the client seed, the server cannot precompute favorable outcomes (assuming the client seed is non-trivial). **[Evidence: E12, E13, E14]**
 
-In our testing, we performed 24 seed rotations across 3 phases of betting. Each rotation correctly revealed the previous server seed and committed to a new hash for the next segment. All 24 revealed seeds matched their committed hashes exactly. **[Evidence: E29]**
+In our testing, we performed 24 seed rotations across 3 phases of betting. Each rotation correctly revealed the previous server seed and committed to a new hash for the next segment. All 24 revealed seeds matched their committed hashes exactly. **[Evidence: E15, E29]**
 
 ## Fairness Documentation
 
@@ -171,12 +171,12 @@ The verification code on the fairness page matches the algorithm we independentl
 
 ## What This Means for Trust
 
-Unlike blockchain-based casinos (such as Luck.io, which uses Solana and VRF oracles), Duel.com is a fully centralized platform. This has specific implications:
+Duel.com is a centralized platform. This has specific implications:
 
-- **No on-chain record**: Bet outcomes are stored in Duel's database, not on a public blockchain. If the platform goes offline, historical bet records may be lost.
-- **No smart contract verification**: The fairness logic runs on Duel's servers. Players cannot inspect the server-side code — they can only verify outcomes after the fact using the commit-reveal protocol.
+- **Server-side storage**: Bet outcomes are stored in Duel's internal database. If the platform goes offline, historical bet records may be lost unless the player has exported their data.
+- **Server-side computation**: The fairness logic runs on Duel's servers. Players cannot inspect the server-side code — they can only verify outcomes after the fact using the commit-reveal protocol.
 - **Server seed entropy**: The randomness of the server seed depends entirely on Duel's server-side random number generator. Players must trust that the server seed is genuinely random, though the commit-reveal scheme prevents exploitation regardless of seed quality.
-- **Payout execution**: Payouts are executed by Duel's internal balance system. There is no escrow contract or automated on-chain settlement.
+- **Payout execution**: Payouts are executed by Duel's internal balance system.
 
 These are standard characteristics of centralized provably fair casinos. The commit-reveal protocol provides strong protection against outcome manipulation, which is the primary concern in game fairness. The centralization trade-offs are discussed in detail in the [Operator Trust Analysis](operator-trust-analysis.md) section.
 

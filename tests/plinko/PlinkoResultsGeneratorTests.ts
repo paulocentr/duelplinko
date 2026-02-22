@@ -90,7 +90,6 @@ describe("Plinko Results Generator Tests", () => {
             const slot = await generator.generatePlinkoResult(serverSeed, clientSeed, nonce, 8);
             slots.add(slot);
         }
-        // With 26 different nonces, we expect > 1 distinct slot value (extremely unlikely to be all same)
         expect(slots.size).to.be.greaterThan(1);
     });
 
@@ -102,6 +101,22 @@ describe("Plinko Results Generator Tests", () => {
                 const slot = await generator.generatePlinkoResult(serverSeed, clientSeed, nonce, rows);
                 expect(slot).to.be.gte(0, `slot < 0 at rows=${rows} nonce=${nonce}`);
                 expect(slot).to.be.lte(rows, `slot > rows at rows=${rows} nonce=${nonce}`);
+            }
+        }
+    });
+
+    it("Sync path produces identical results to async path", async () => {
+        const serverSeed = "4351b2c37e32c3575ccbcd51214ff1ca6da8b460dc15f9bb7930e0c753795204";
+        const clientSeed = "PH_NW_777fLkqsHC";
+        const keyBuffer = Buffer.from(serverSeed, 'hex');
+
+        for (let nonce = 0; nonce < 50; nonce++) {
+            for (const rows of [8, 12, 16]) {
+                const asyncSlot = await generator.generatePlinkoResult(serverSeed, clientSeed, nonce, rows);
+                const syncSlot = generator.generatePlinkoResultSync(keyBuffer, clientSeed, nonce, rows);
+                expect(syncSlot).to.eql(asyncSlot,
+                    `Sync/async mismatch at nonce=${nonce} rows=${rows}: sync=${syncSlot}, async=${asyncSlot}`
+                );
             }
         }
     });

@@ -1,6 +1,6 @@
 {
   "name": "duel-plinko-audit",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "test": "mocha --spec tests/plinko/**/*.ts",
@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "Provably fair audit of Duel.com Plinko game",
+  "description": "Provably fair audit of Duel.com Plinko game — v2 with API-precision multipliers and sync HMAC",
   "devDependencies": {
     "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
@@ -25,6 +25,6 @@
     "chai": "^6.2.2",
     "chart.js": "^4.5.1",
     "chartjs-node-canvas": "^5.0.0",
-"sinon": "^21.0.1"
+    "sinon": "^21.0.1"
   }
 }

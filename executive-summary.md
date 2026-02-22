@@ -60,9 +60,9 @@ Across 217 unique (risk, rows, slot) combinations observed in the dataset, every
 
 ### RTP Assessment — NOTED
 
-The platform reports an `effective_edge` field in API responses. The majority of bets (1,015 of 1,080) show `effective_edge = 0.1`, corresponding to 99.9% RTP, while 65 bets show `effective_edge = 0` (Duel's "Zero Edge" promotional feature, corresponding to 100% RTP). Theoretical RTP calculated independently from observed multiplier tables confirms consistency with these stated values.
+The platform reports an `effective_edge` field in API responses. The majority of bets (1,015 of 1,080) show `effective_edge = 0.1`, corresponding to 99.9% RTP, while 65 bets show `effective_edge = 0` (Duel's "Zero Edge" rakeback feature, corresponding to 100% RTP). Theoretical RTP calculated independently from observed multiplier tables confirms consistency with these stated values.
 
-Empirical RTP across our 1,080-bet dataset was 104.08%, which reflects normal short-term variance rather than a systematic deviation — expected with small samples, particularly given High risk configurations where individual multipliers exceed 600x. **[Evidence: E41, E47]**
+Empirical RTP across our 1,080-bet dataset was 104.08%. This figure is a variance illustration, not RTP evidence — 1,080 bets is far too few for convergence, particularly given High risk configurations where individual multipliers exceed 600x. RTP is established by mathematical proof and 27M-round simulation, not by live bet data. The live bets serve to demonstrate determinism, parity, payout formula correctness, seed integrity, and nonce sequencing. **[Evidence: E41, E47]**
 
 ## Overall Verdict
 
@@ -70,4 +70,4 @@ Empirical RTP across our 1,080-bet dataset was 104.08%, which reflects normal sh
 
 ### Trust Considerations
 
-While the cryptographic fairness mechanism is sound, players should be aware that Duel.com is a centralized platform — not a blockchain-based casino. The multiplier tables are set by the operator and are not published in a machine-readable format. Server seed generation occurs server-side and its entropy source cannot be audited externally. These are standard characteristics of centralized provably fair casinos and do not diminish the effectiveness of the commit-reveal fairness guarantee, but they do represent areas where additional transparency would strengthen player trust.
+While the cryptographic fairness mechanism is sound, players should be aware that Duel.com is a centralized platform. The multiplier tables are set by the operator and are not published in a machine-readable format. Server seed generation occurs server-side and its entropy source cannot be audited externally. These are standard characteristics of centralized provably fair casinos and do not diminish the effectiveness of the commit-reveal fairness guarantee, but they do represent areas where additional transparency would strengthen player trust.

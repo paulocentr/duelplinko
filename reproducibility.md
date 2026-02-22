@@ -48,7 +48,7 @@ This executes all Plinko test suites and produces:
 ### Run specific test categories
 
 ```bash
-# All Plinko tests (41 tests)
+# All Plinko tests (45 tests)
 npx mocha --spec tests/plinko/**/*.ts
 
 # Algorithm correctness tests only
@@ -81,14 +81,14 @@ npm run generate-dice-audit-files
 To independently verify that bets in the dataset match the HMAC-SHA256 algorithm:
 
 ```bash
-npx ts-node scripts/validateDuelPlinko.ts
+npx mocha --spec tests/plinko/PlinkoResultsGeneratorTests.ts
 ```
 
-This standalone script:
+This test suite:
 1. Loads the dataset JSON
 2. Maps each seed hash to its revealed plaintext seed
 3. Recomputes every bet outcome using HMAC-SHA256
-4. Reports match/mismatch counts and details
+4. Asserts 100% match rate on all verifiable bets
 
 ## Viewing Reports
 
@@ -110,7 +110,7 @@ start outputs/plinko/audit-results/audit-results.html
 When all tests pass, the output shows:
 
 ```
-  41 passing
+  45 passing
 ```
 
 Broken down by suite:

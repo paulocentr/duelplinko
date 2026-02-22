@@ -7,7 +7,7 @@
 - Multiplier table consistency across all 1,080 bets
 - Nonce sequence continuity across 24 seed segments
 - Win/loss streak lengths for evidence of non-random clustering
-- Zero Edge promotional feature distribution
+- Zero Edge rakeback feature distribution
 
 ## What This Means for Players
 
@@ -78,6 +78,26 @@ The deviations are within normal statistical fluctuation for a sample size of 12
 ### Note on Row 8's Close Result
 
 The 8-row configuration shows χ² = 14.827 against a critical value of 15.507 — the closest margin of any configuration. This is not concerning: with 9 tests at p = 0.05, we would expect roughly 1 in 20 to come close to the threshold by pure chance. The result is still a clear pass, and the deviation is driven primarily by the edge slots (0 and 8) where expected counts are below 1, making the chi-squared statistic inherently volatile.
+
+### Simulation Chi-Squared (27 Configurations, 1M Rounds Each)
+
+The live-data chi-squared above used 120 bets per row config. To provide stronger statistical evidence, we ran 1,000,000 simulated rounds per configuration (27 configs = 27M total rounds) and applied the same chi-squared goodness-of-fit test against the expected binomial distribution.
+
+Since slot distribution depends only on row count (risk level affects multipliers, not bounce direction), the chi-squared statistics are identical across risk levels for the same row count:
+
+| Rows | χ² Statistic | df | Critical Value (p=0.05) | Result |
+|------|--------------|----|------------------------|--------|
+| 8    | 3.701        | 8  | 15.507                 | **PASS** |
+| 9    | 5.119        | 9  | 16.919                 | **PASS** |
+| 10   | 4.954        | 10 | 18.307                 | **PASS** |
+| 11   | 11.978       | 11 | 19.675                 | **PASS** |
+| 12   | 15.816       | 12 | 21.026                 | **PASS** |
+| 13   | 15.603       | 13 | 22.362                 | **PASS** |
+| 14   | 17.171       | 14 | 23.685                 | **PASS** |
+| 15   | 11.785       | 15 | 24.996                 | **PASS** |
+| 16   | 9.864        | 16 | 26.296                 | **PASS** |
+
+All 27 configurations pass. The full per-config results are in `outputs/plinko/chi-squared-results.json`. **[Evidence: E36, E37]**
 
 ## Extreme Slot Analysis
 
@@ -190,7 +210,7 @@ The Low risk winning streak of 12 is slightly above the expected ~9, and the Hig
 
 The High risk losing streak of 17 consecutive sub-1x outcomes reflects the configuration's design: ~83% of High risk outcomes pay 0.2x (a loss). A streak of 17 losses has probability `0.83^17 ≈ 4.3%` — unusual but not rare. The Low risk winning streak of 12 reflects the ~52% win rate where `0.525^12 ≈ 0.03%` per starting position, but with 360 starting positions, the probability of observing at least one streak of 12+ is substantial.
 
-No patterns suggestive of non-random clustering, autocorrelation, or state-dependent outcomes were observed. **[Evidence: E40]**
+No patterns suggestive of non-random clustering, autocorrelation, or state-dependent outcomes were observed. **[Evidence: E40, E55, E56]**
 
 ## Effective Edge Analysis
 
@@ -203,7 +223,7 @@ Duel.com offers a "Zero Edge" feature where certain bets carry 0% house edge (10
 | 0.1 (99.9% RTP) | 1,015 | 94.0% |
 | 0 (100% RTP) | 65 | 6.0% |
 
-The 65 zero-edge bets are distributed across all configurations — they are not concentrated in any particular risk level or row count. This appears to be a random promotional feature applied to approximately 6% of bets.
+Zero-edge bets apply a 0.1% rakeback at the transaction level, cancelling the standard house edge. The multiplier tables are identical for zero-edge and standard bets. The 65 zero-edge bets in our dataset are distributed across all configurations — they are not concentrated in any particular risk level or row count.
 
 The existence of `effective_edge` as an API field is notable: it confirms that Duel explicitly tracks and reports the house edge applied to each individual bet, providing transparency about when the edge varies.
 

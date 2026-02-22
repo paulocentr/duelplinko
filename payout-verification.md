@@ -50,7 +50,7 @@ Every single bet satisfies the payout equation with no detectable rounding error
 | Bet ID | Wager (USDT) | Multiplier | Live Payout | Calculated Payout | Match |
 |--------|-------------|------------|-------------|-------------------|-------|
 | 56195484 | 0.010004902402177 | 0.50462510 | 0.005048724875188809 | 0.005048724875188809 | YES |
-| 56195559 | 0.010004902402177 | 0.40310078 | 0.004033259870305621 | 0.004033259870305621 | YES |
+| 56197943 | 0.010004902402177 | 0.40401896 | 0.004042170263429053 | 0.004042170263429053 | YES |
 | 56201610 | 0.010004902402177 | 4.03732442 | 0.040393036788025863 | 0.040393036788025863 | YES |
 
 **[Evidence: E44]**
@@ -123,7 +123,7 @@ The test session resulted in a net profit of approximately $0.44 over 1,080 bets
 
 The per-phase variation is significant — Low risk returned 97.13% while High risk returned 109.20%. This is expected behavior: High risk configurations have extreme multiplier values (up to 625x for 15-row, 1000x for 16-row), so a single lucky hit on an edge slot can dramatically shift the empirical RTP upward. Conversely, Long stretches of center-slot outcomes (0.2x on High) drive it downward.
 
-**[Evidence: E47, E48]**
+**[Evidence: E23, E24, E25, E47, E48]**
 
 ## Payout Timing
 

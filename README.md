@@ -4,7 +4,7 @@
 **Date:** February 17, 2026\
 **Game:** Plinko (Original)\
 **Platform:** [duel.com](https://duel.com)\
-**Audit Version:** 1.0\
+**Audit Version:** 2.0\
 **Dataset SHA-256:** `2000cb5f865263ac2556cc7781682ff66fcd32c9c1230a27bf1ce74638c70c16`
 
 ---
@@ -15,7 +15,7 @@
 |--------|-------|
 | RTP | 99.9% (0.1% house edge) |
 | Live Bets Tested | 1,080 |
-| Simulated Rounds | 5,400,000 |
+| Simulated Rounds | 27,000,000 |
 | Parity Rate | 100% (1,070/1,070) |
 
 ## Audit Verdict
@@ -42,7 +42,7 @@
 - RNG analysis: HMAC-SHA256 uniformity, modulo bias assessment, per-row independence
 - Payout logic: multiplier-to-payout calculation, precision, consistency
 - Live parity: 1,080 real-money bets verified against independent re-computation
-- RTP validation: theoretical calculation, Monte Carlo simulation (5.4M rounds), empirical observation
+- RTP validation: theoretical calculation, Monte Carlo simulation (27M rounds), empirical observation
 - Exploit testing: prediction attempts, manipulation vectors, seed lifecycle attacks
 
 ### What This Audit Guarantees
@@ -69,7 +69,7 @@ This audit evaluates the cryptographic fairness, outcome determinism, payout acc
 - Payout accuracy validation for every recorded wager
 - Statistical distribution analysis across 9 row counts
 - Theoretical and empirical RTP (Return to Player) analysis
-- Monte Carlo simulation across 5,400,000 rounds
+- Monte Carlo simulation across 27,000,000 rounds
 - Structured exploit and edge-case testing
 - Operator trust model and transparency assessment
 
@@ -81,11 +81,11 @@ This audit evaluates the cryptographic fairness, outcome determinism, payout acc
 4. [RNG and Commit-Reveal Analysis](rng-algorithm-analysis.md)
 5. [Game Logic Verifiability](game-logic-verifiability.md)
 6. [Live Parity Testing](live-parity-testing.md)
-7. [Exploit and Edge-Case Testing](exploit-testing.md)
-8. [Edge Case and Statistical Analysis](edge-case-analysis.md)
+7. [Edge Case and Statistical Analysis](edge-case-analysis.md)
+8. [Exploit and Edge-Case Testing](exploit-testing.md)
 9. [Payout System Verification](payout-verification.md)
-10. [RTP Analysis](rtp-analysis.md)
-11. [Operator Trust and Control Analysis](operator-trust-analysis.md)
+10. [Operator Trust and Control Analysis](operator-trust-analysis.md)
+11. [RTP Analysis](rtp-analysis.md)
 12. [Conclusion](conclusion.md)
 13. [Recommendations](recommendations.md)
 14. [Reproducibility](reproducibility.md)
@@ -108,6 +108,6 @@ All testing was performed against the live production environment at duel.com us
 | Bets per configuration | 40 |
 | Verification match rate | 1,070/1,070 (100%) |
 | Payout accuracy | 1,080/1,080 (100%) |
-| Simulated rounds | 5,400,000 (200,000 per config) |
+| Simulated rounds | 27,000,000 (1,000,000 per config) |
 | Dataset file | `duel-plinko-sim-1771364316980.json` |
 | Dataset SHA-256 | `2000cb5f865263ac2556cc7781682ff66fcd32c9c1230a27bf1ce74638c70c16` |

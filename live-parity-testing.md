@@ -38,7 +38,7 @@ The script operates in three phases, one per risk level:
 
 Within each phase, the script iterates through all 9 row configurations (8, 9, 10, 11, 12, 13, 14, 15, 16), placing 40 bets at each configuration. Every 50 bets, the script automatically rotates the seed pair, which reveals the previous server seed and commits to a new one.
 
-The bet amount was set to the minimum ($0.01 USDT per bet), resulting in a total test cost of approximately $10.80. **[Evidence: E21, E22]**
+The bet amount was set to the minimum ($0.01 USDT per bet), resulting in a total test cost of approximately $10.80. **[Evidence: E07, E21, E22]**
 
 ### Seed Rotation Protocol
 
@@ -58,7 +58,7 @@ At each rotation, the script recorded:
 - The new client seed
 - The nonce value at the time of rotation
 
-**[Evidence: E26]**
+**[Evidence: E14, E26]**
 
 ### Dataset Structure
 
@@ -98,18 +98,18 @@ The complete dataset is stored as a single JSON file (`duel-plinko-sim-177136431
 }
 ```
 
-**[Evidence: E21, E22]**
+**[Evidence: E18, E21, E22]**
 
 ## Verification Methodology
 
 ### Independent Verifier
 
-We built an independent verification script (`validateDuelPlinko.ts`) in TypeScript using Node.js's built-in `crypto` module. This script:
+We built an independent verification suite in TypeScript using Node.js's built-in `crypto` module. The core verifier (`src/plinko/PlinkoResultsGenerator.ts`) and audit tests (`tests/plinko/PlinkoAuditExecutionChecklistTests.ts`):
 
-1. Loads the dataset JSON file
-2. Maps each seed hash to its revealed plaintext seed
-3. For each bet, recomputes the expected `final_slot` using HMAC-SHA256
-4. Compares the computed result to the live result from the API
+1. Load the dataset JSON file
+2. Map each seed hash to its revealed plaintext seed
+3. For each bet, recompute the expected `final_slot` using HMAC-SHA256
+4. Compare the computed result to the live result from the API
 
 The verifier uses the exact same algorithm as Duel's published code — `hexToBytes()` for key encoding, `clientSeed:nonce:cursor` for the HMAC message, big-endian uint32 extraction, and `value % 2` for the bounce direction — but implemented independently in a different runtime environment. **[Evidence: E27]**
 
@@ -219,7 +219,7 @@ This does not represent a fairness concern. The 10 unverified bets were placed u
 - Verification algorithm: `src/plinko/PlinkoResultsGenerator.ts`
 - Determinism tests: `tests/plinko/PlinkoResultsGeneratorTests.ts`
 - Audit checklist: `tests/plinko/PlinkoAuditExecutionChecklistTests.ts`
-- Capture script: `capture/tampermonkey/duel-plinko/duel-plinko-capture-phases.js`
+- Data collection: Tampermonkey capture script (used during live data collection, not part of verification code)
 
 **Generated Artifacts:**
 - `outputs/plinko/determinism-log.json` — Bet-by-bet verification results with dataset hash

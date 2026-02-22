@@ -1,230 +1,230 @@
 {
   "meta": {
     "game": "plinko",
-    "commit": "",
-    "generatedAt": "2026-02-18T01:18:45.822Z",
-    "totalRounds": 5400000,
-    "executionTimeMs": 680631,
-    "aggregateSimulatedRTP": 0.9883702962968126,
-    "aggregateTheoreticalRTP": 0.991156005859375,
-    "aggregateDeviation": -0.0027857095625624106
+    "commit": "3172ff54eaa4a77b84c085fdcd961de72e61fa3f",
+    "generatedAt": "2026-02-21T17:45:59.596Z",
+    "totalRounds": 27000000,
+    "executionTimeMs": 457611,
+    "aggregateSimulatedRTP": 0.9986872846899679,
+    "aggregateTheoreticalRTP": 0.9995054432230858,
+    "aggregateDeviation": -0.0008181585331178409
   },
   "modes": [
     {
       "mode": "low_8rows",
-      "simulatedRTP": 0.9906120000010116,
-      "sampleSize": 200000,
-      "stdError": 0.001268491161687771,
-      "theoreticalRTP": 0.9906250000000001,
-      "deviation": -0.000012999998988516559
+      "simulatedRTP": 1.0004580153239595,
+      "sampleSize": 1000000,
+      "stdError": 0.000571330331014595,
+      "theoreticalRTP": 0.99978847875,
+      "deviation": 0.0006695365739595172
     },
     {
       "mode": "low_9rows",
-      "simulatedRTP": 0.9908500000017828,
-      "sampleSize": 200000,
-      "stdError": 0.001046363410818633,
-      "theoreticalRTP": 0.990234375,
-      "deviation": 0.0006156250017828047
+      "simulatedRTP": 0.9998843581342081,
+      "sampleSize": 1000000,
+      "stdError": 0.0004704080662728384,
+      "theoreticalRTP": 0.9993942410156251,
+      "deviation": 0.0004901171185829334
     },
     {
       "mode": "low_10rows",
-      "simulatedRTP": 0.9906415000005215,
-      "sampleSize": 200000,
-      "stdError": 0.001184154484173725,
-      "theoreticalRTP": 0.990234375,
-      "deviation": 0.00040712500052153544
+      "simulatedRTP": 0.9996403790763885,
+      "sampleSize": 1000000,
+      "stdError": 0.0005360614773689225,
+      "theoreticalRTP": 0.9991970777148438,
+      "deviation": 0.00044330136154469013
     },
     {
       "mode": "low_11rows",
-      "simulatedRTP": 0.9907415000005648,
-      "sampleSize": 200000,
-      "stdError": 0.0009960176458721698,
-      "theoreticalRTP": 0.99013671875,
-      "deviation": 0.0006047812505648453
+      "simulatedRTP": 0.9992565380510465,
+      "sampleSize": 1000000,
+      "stdError": 0.00044716894618643434,
+      "theoreticalRTP": 0.9990985395800782,
+      "deviation": 0.00015799847096831243
     },
     {
       "mode": "low_12rows",
-      "simulatedRTP": 0.9904505000005751,
-      "sampleSize": 200000,
-      "stdError": 0.0008727890840568303,
-      "theoreticalRTP": 0.989794921875,
-      "deviation": 0.0006555781255751514
+      "simulatedRTP": 0.9990627569776842,
+      "sampleSize": 1000000,
+      "stdError": 0.0003886226104548094,
+      "theoreticalRTP": 0.9990000005957032,
+      "deviation": 0.00006275638198105504
     },
     {
       "mode": "low_13rows",
-      "simulatedRTP": 0.9895925000001484,
-      "sampleSize": 200000,
-      "stdError": 0.0010475930363069196,
-      "theoreticalRTP": 0.9900146484374999,
-      "deviation": -0.0004221484373514439
+      "simulatedRTP": 0.9990732260302427,
+      "sampleSize": 1000000,
+      "stdError": 0.00047348175273268184,
+      "theoreticalRTP": 0.9990246362426757,
+      "deviation": 0.0000485897875670549
     },
     {
       "mode": "low_14rows",
-      "simulatedRTP": 0.9897500000003477,
-      "sampleSize": 200000,
-      "stdError": 0.000709347014866485,
-      "theoreticalRTP": 0.9900146484375001,
-      "deviation": -0.0002646484371523483
+      "simulatedRTP": 0.9994217566798917,
+      "sampleSize": 1000000,
+      "stdError": 0.00032114110402930204,
+      "theoreticalRTP": 0.999012317479248,
+      "deviation": 0.0004094392006437353
     },
     {
       "mode": "low_15rows",
-      "simulatedRTP": 0.9896105000016763,
-      "sampleSize": 200000,
-      "stdError": 0.0008898160155047468,
-      "theoreticalRTP": 0.99010009765625,
-      "deviation": -0.0004895976545736813
+      "simulatedRTP": 0.9990538401896365,
+      "sampleSize": 1000000,
+      "stdError": 0.00041194073023023323,
+      "theoreticalRTP": 0.9990923847631836,
+      "deviation": -0.000038544573547127925
     },
     {
       "mode": "low_16rows",
-      "simulatedRTP": 0.9898475000009529,
-      "sampleSize": 200000,
-      "stdError": 0.0007166295303144739,
-      "theoreticalRTP": 0.9900360107421875,
-      "deviation": -0.00018851074123460432
+      "simulatedRTP": 0.9991752978334013,
+      "sampleSize": 1000000,
+      "stdError": 0.0003346738949582676,
+      "theoreticalRTP": 0.999049271592102,
+      "deviation": 0.00012602624129931517
     },
     {
       "mode": "medium_8rows",
-      "simulatedRTP": 0.9896734999996107,
-      "sampleSize": 200000,
-      "stdError": 0.002789031474721771,
-      "theoreticalRTP": 0.9890625,
-      "deviation": 0.000610999999610784
+      "simulatedRTP": 1.0002853878761122,
+      "sampleSize": 1000000,
+      "stdError": 0.0012553885304114041,
+      "theoreticalRTP": 0.9990000015625001,
+      "deviation": 0.0012853863136120802
     },
     {
       "mode": "medium_9rows",
-      "simulatedRTP": 0.9936714999991942,
-      "sampleSize": 200000,
-      "stdError": 0.0028953629306943144,
-      "theoreticalRTP": 0.99140625,
-      "deviation": 0.0022652499991941966
+      "simulatedRTP": 1.0002580153845364,
+      "sampleSize": 1000000,
+      "stdError": 0.0012958524231981717,
+      "theoreticalRTP": 0.9990000027734375,
+      "deviation": 0.0012580126110989243
     },
     {
       "mode": "medium_10rows",
-      "simulatedRTP": 0.9908579999998177,
-      "sampleSize": 200000,
-      "stdError": 0.002706756937587836,
-      "theoreticalRTP": 0.991015625,
-      "deviation": -0.00015762500018223768
+      "simulatedRTP": 1.0014385599579325,
+      "sampleSize": 1000000,
+      "stdError": 0.0012277505428760183,
+      "theoreticalRTP": 1.0009727513671876,
+      "deviation": 0.00046580859074496495
     },
     {
       "mode": "medium_11rows",
-      "simulatedRTP": 0.992478500000441,
-      "sampleSize": 200000,
-      "stdError": 0.002525053640061698,
-      "theoreticalRTP": 0.9913085937499999,
-      "deviation": 0.0011699062504411106
+      "simulatedRTP": 0.9990357403203922,
+      "sampleSize": 1000000,
+      "stdError": 0.0011254434112833798,
+      "theoreticalRTP": 0.9990000017382811,
+      "deviation": 0.000035738582111144446
     },
     {
       "mode": "medium_12rows",
-      "simulatedRTP": 0.9900725000016518,
-      "sampleSize": 200000,
-      "stdError": 0.002899088817838915,
-      "theoreticalRTP": 0.989892578125,
-      "deviation": 0.000179921876651834
+      "simulatedRTP": 0.9991137599592544,
+      "sampleSize": 1000000,
+      "stdError": 0.001290661767029138,
+      "theoreticalRTP": 0.9990000009814451,
+      "deviation": 0.00011375897780929733
     },
     {
       "mode": "medium_13rows",
-      "simulatedRTP": 0.9898374999989619,
-      "sampleSize": 200000,
-      "stdError": 0.0029947895365064737,
-      "theoreticalRTP": 0.991845703125,
-      "deviation": -0.0020082031260381106
+      "simulatedRTP": 1.0001287290877214,
+      "sampleSize": 1000000,
+      "stdError": 0.0013512531888395587,
+      "theoreticalRTP": 1.0009217228100586,
+      "deviation": -0.0007929937223372097
     },
     {
       "mode": "medium_14rows",
-      "simulatedRTP": 0.9898735000001556,
-      "sampleSize": 200000,
-      "stdError": 0.0029679794507355903,
-      "theoreticalRTP": 0.99117431640625,
-      "deviation": -0.0013008164060943628
+      "simulatedRTP": 0.9991194790555039,
+      "sampleSize": 1000000,
+      "stdError": 0.0013544606804821457,
+      "theoreticalRTP": 0.9991231892553711,
+      "deviation": -0.0000037101998672239844
     },
     {
       "mode": "medium_15rows",
-      "simulatedRTP": 0.9867394999985202,
-      "sampleSize": 200000,
-      "stdError": 0.0031898511008664333,
-      "theoreticalRTP": 0.9900451660156251,
-      "deviation": -0.0033056660171049135
+      "simulatedRTP": 0.9982730089258544,
+      "sampleSize": 1000000,
+      "stdError": 0.0015299914555990998,
+      "theoreticalRTP": 0.9990615918096925,
+      "deviation": -0.0007885828838380959
     },
     {
       "mode": "medium_16rows",
-      "simulatedRTP": 0.9876444999994932,
-      "sampleSize": 200000,
-      "stdError": 0.0029923817366938597,
-      "theoreticalRTP": 0.9899139404296875,
-      "deviation": -0.0022694404301942805
+      "simulatedRTP": 0.9991195666356543,
+      "sampleSize": 1000000,
+      "stdError": 0.0014589912269596952,
+      "theoreticalRTP": 0.9990307969851685,
+      "deviation": 0.0000887696504857649
     },
     {
       "mode": "high_8rows",
-      "simulatedRTP": 0.9933384999995595,
-      "sampleSize": 200000,
-      "stdError": 0.0060282859812792735,
-      "theoreticalRTP": 0.9906250000000001,
-      "deviation": 0.002713499999559388
+      "simulatedRTP": 1.001684203726808,
+      "sampleSize": 1000000,
+      "stdError": 0.002705936519568433,
+      "theoreticalRTP": 0.999000001015625,
+      "deviation": 0.0026842027111830813
     },
     {
       "mode": "high_9rows",
-      "simulatedRTP": 0.9996165000025842,
-      "sampleSize": 200000,
-      "stdError": 0.0066809600368988075,
-      "theoreticalRTP": 0.9941406249999999,
-      "deviation": 0.005475875002584285
+      "simulatedRTP": 1.0015899131714652,
+      "sampleSize": 1000000,
+      "stdError": 0.002982228501847764,
+      "theoreticalRTP": 0.9990000009374999,
+      "deviation": 0.002589912233965319
     },
     {
       "mode": "high_10rows",
-      "simulatedRTP": 0.992276999998763,
-      "sampleSize": 200000,
-      "stdError": 0.008218875031070562,
-      "theoreticalRTP": 0.992578125,
-      "deviation": -0.0003011250012370237
+      "simulatedRTP": 1.002929341693072,
+      "sampleSize": 1000000,
+      "stdError": 0.003729144375269093,
+      "theoreticalRTP": 1.0009696377343749,
+      "deviation": 0.0019597039586971565
     },
     {
       "mode": "high_11rows",
-      "simulatedRTP": 0.9973419999995715,
-      "sampleSize": 200000,
-      "stdError": 0.00943489780947203,
-      "theoreticalRTP": 0.992578125,
-      "deviation": 0.004763874999571538
+      "simulatedRTP": 1.0000891041493565,
+      "sampleSize": 1000000,
+      "stdError": 0.00418158422368526,
+      "theoreticalRTP": 0.9999838496484377,
+      "deviation": 0.0001052545009188055
     },
     {
       "mode": "high_12rows",
-      "simulatedRTP": 0.9961895000022281,
-      "sampleSize": 200000,
-      "stdError": 0.010036566427342044,
-      "theoreticalRTP": 0.994873046875,
-      "deviation": 0.0013164531272280566
+      "simulatedRTP": 0.9963058551212668,
+      "sampleSize": 1000000,
+      "stdError": 0.0043355778787351204,
+      "theoreticalRTP": 0.999492144584961,
+      "deviation": -0.0031862894636942585
     },
     {
       "mode": "high_13rows",
-      "simulatedRTP": 0.9809220000017741,
-      "sampleSize": 200000,
-      "stdError": 0.010344988745744505,
-      "theoreticalRTP": 0.991357421875,
-      "deviation": -0.01043542187322588
+      "simulatedRTP": 0.990958411373069,
+      "sampleSize": 1000000,
+      "stdError": 0.004632584147608374,
+      "theoreticalRTP": 0.9994922905419922,
+      "deviation": -0.00853387916892323
     },
     {
       "mode": "high_14rows",
-      "simulatedRTP": 0.9780460000003799,
-      "sampleSize": 200000,
-      "stdError": 0.01120270416504062,
-      "theoreticalRTP": 0.99197998046875,
-      "deviation": -0.013933980468370133
+      "simulatedRTP": 0.9944099355904034,
+      "sampleSize": 1000000,
+      "stdError": 0.005314896485726018,
+      "theoreticalRTP": 1.001217728232422,
+      "deviation": -0.006807792642018584
     },
     {
       "mode": "high_15rows",
-      "simulatedRTP": 0.9614980000017346,
-      "sampleSize": 200000,
-      "stdError": 0.009098203365499118,
-      "theoreticalRTP": 0.9942626953125,
-      "deviation": -0.032764695310765424
+      "simulatedRTP": 0.9901881585297991,
+      "sampleSize": 1000000,
+      "stdError": 0.005460990240796684,
+      "theoreticalRTP": 1.0002314714611817,
+      "deviation": -0.010043312931382609
     },
     {
       "mode": "high_16rows",
-      "simulatedRTP": 0.9638235000019211,
-      "sampleSize": 200000,
-      "stdError": 0.009256374671232678,
-      "theoreticalRTP": 0.991961669921875,
-      "deviation": -0.02813816991995388
+      "simulatedRTP": 0.9946033477744737,
+      "sampleSize": 1000000,
+      "stdError": 0.006051374757027098,
+      "theoreticalRTP": 0.9994928358502198,
+      "deviation": -0.0048894880757460735
     }
   ]
 }

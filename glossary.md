@@ -74,7 +74,7 @@ The complement of RTP. A 99.9% RTP corresponds to a 0.1% house edge. This is the
 The factor applied to the bet amount to determine the payout. In Plinko, each slot has a fixed multiplier determined by the risk level and row count. `win_amount = bet_amount × multiplier`.
 
 **Effective Edge**
-A per-bet field in Duel's API that reports the house edge applied to each individual bet. Standard bets show `effective_edge = 0.1` (0.1% edge); promotional "Zero Edge" bets show `effective_edge = 0`.
+A per-bet field in Duel's API that reports the house edge applied to each individual bet. Standard bets show `effective_edge = 0.1` (0.1% edge); "Zero Edge" (rakeback) bets show `effective_edge = 0`.
 
 **Binomial Distribution**
 The probability distribution B(n, 0.5) that describes the number of "right" bounces in n rows when each bounce has a 50% chance of going right. This is the theoretical distribution of Plinko slot positions.

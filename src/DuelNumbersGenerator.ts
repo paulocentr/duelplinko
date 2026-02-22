@@ -35,10 +35,13 @@ export abstract class DuelNumbersGenerator {
 
     private readonly cache = new Map<string, any>();
 
+    /**
+     * Async HMAC-SHA256 using WebCrypto API.
+     * Used for verification (correctness-critical path).
+     */
     async generateHMAC_SHA256(keyHex: string, message: Uint8Array<ArrayBuffer>) {
         const keyBytes = this.hexToBytes(keyHex);
 
-        // Import raw key for HMAC use
         const cryptoKey = await crypto.subtle.importKey(
             'raw',
             keyBytes,
@@ -47,8 +50,19 @@ export abstract class DuelNumbersGenerator {
             ['sign'],
         );
 
-        // Generate HMAC signature
         const signature = await crypto.subtle.sign('HMAC', cryptoKey, message);
-        return this.bytesToHex(new Uint8Array(signature)); // Return signature as hex
+        return this.bytesToHex(new Uint8Array(signature));
+    }
+
+    /**
+     * Sync HMAC-SHA256 using Node.js crypto.createHmac.
+     * Used for simulation (performance-critical path).
+     * Returns first 4 bytes as big-endian uint32.
+     */
+    generateHMAC_SHA256_sync_uint32(keyBuffer: Buffer, message: string): number {
+        const hmac = crypto.createHmac('sha256', keyBuffer);
+        hmac.update(message);
+        const hash = hmac.digest();
+        return hash.readUInt32BE(0);
     }
 }

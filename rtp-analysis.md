@@ -5,7 +5,7 @@
 - Outcome-to-payout mapping correctness
 - Advertised RTP vs. actual game behavior
 - Independent theoretical RTP calculation using full-precision API multipliers
-- Monte Carlo simulation convergence (5,400,000 rounds)
+- Monte Carlo simulation convergence (27,000,000 rounds)
 - Empirical RTP from 1,080 live bets
 
 ## What This Means for Players
@@ -17,7 +17,7 @@ The house edge is consistent and transparent. Payouts cannot be altered post-rol
 | Check | Result | Finding |
 |-------|--------|---------|
 | Theoretical RTP independently verified | ✅ Pass | Full-precision API multipliers sum to ~99.89% RTP |
-| Simulation convergence | ✅ Pass | 5.4M rounds converge within expected statistical bounds |
+| Simulation convergence | ✅ Pass | 27M rounds converge within expected statistical bounds |
 | RTP consistent across risk levels | ✅ Pass | All risk levels target same ~99.9% RTP |
 | House edge matches `effective_edge` field | ✅ Pass | 0.1% edge confirmed independently |
 
@@ -34,7 +34,7 @@ Duel.com reports the house edge for each bet via the `effective_edge` field in t
 - **Standard bets (1,015 of 1,080):** `effective_edge = 0.1` → 0.1% house edge → **99.9% RTP**
 - **Zero Edge bets (65 of 1,080):** `effective_edge = 0` → 0% house edge → **100% RTP**
 
-The "Zero Edge" feature appears to be randomly applied to approximately 6% of bets, distributed across all risk levels and row configurations. This is a promotional feature unique to Duel's platform. **[Evidence: E19, E42]**
+Zero-edge bets apply a 0.1% rakeback at the transaction level, cancelling the standard house edge. The multiplier tables are identical for zero-edge and standard bets. In our dataset, approximately 6% of bets received zero-edge status, distributed across all risk levels and row configurations. **[Evidence: E19, E42]**
 
 ## Independent Theoretical Verification
 
@@ -92,42 +92,40 @@ For higher row counts, some extreme edge slots were not observed in our dataset 
 
 ## Monte Carlo Simulation
 
-We ran a Monte Carlo simulation of 5,400,000 rounds (200,000 per configuration) to verify that simulated RTP converges to theoretical values.
+We ran a Monte Carlo simulation of 27,000,000 rounds (1,000,000 per configuration) using API-precision multipliers and synchronous HMAC-SHA256 to verify that simulated RTP converges to theoretical values.
 
 ### Simulation Configuration
 
 | Parameter | Value |
 |-----------|-------|
-| Total rounds | 5,400,000 |
-| Rounds per configuration | 200,000 |
+| Total rounds | 27,000,000 |
+| Rounds per configuration | 1,000,000 |
 | Configurations | 27 (3 risks × 9 rows) |
-| Execution time | 681 seconds (~11.4 minutes) |
+| Multiplier source | API-precision (8 decimal places) |
+| HMAC implementation | Sync `crypto.createHmac` with hex-decoded key |
+| Execution time | 450 seconds (~7.5 minutes) |
 
 ### Convergence Results (Selected Modes)
 
 | Mode | Simulated RTP | Theoretical RTP | Deviation | Std Error |
 |------|--------------|----------------|-----------|-----------|
-| low_8rows | 99.06% | 99.06% | -0.001% | ±0.127% |
-| low_16rows | 98.98% | 99.00% | -0.019% | ±0.072% |
-| medium_8rows | 98.97% | 98.91% | +0.061% | ±0.279% |
-| medium_16rows | 98.76% | 98.99% | -0.227% | ±0.299% |
-| high_8rows | 99.33% | 99.06% | +0.271% | ±0.603% |
-| high_16rows | 96.38% | 99.20% | -2.814% | ±0.926% |
-| **Aggregate** | **98.84%** | **99.12%** | **-0.279%** | |
-
-### Simulation Methodology Note
-
-The simulation uses the display-rounded multiplier tables from `PlinkoGameProfiles.ts` (e.g., `13.0` instead of `13.13061608`). This produces a lower theoretical baseline (~99%) compared to the true API-precision values (~99.9%). The simulation is internally consistent — it converges to its own theoretical — but the absolute RTP values are ~1% below the actual game RTP.
-
-This limitation exists because the full-precision multiplier tables are not published by Duel in a machine-readable format. The simulation validates the *algorithm's statistical behavior* (uniform distribution, convergence over large samples) rather than the *exact RTP value*, which is verified independently through the theoretical calculation above.
+| low_8rows | 100.05% | 99.98% | +0.067% | ±0.057% |
+| low_16rows | 99.92% | 99.90% | +0.013% | ±0.033% |
+| medium_8rows | 100.03% | 99.90% | +0.129% | ±0.126% |
+| medium_16rows | 99.91% | 99.90% | +0.009% | ±0.146% |
+| high_8rows | 100.17% | 99.90% | +0.268% | ±0.271% |
+| high_16rows | 99.46% | 99.95% | -0.489% | ±0.605% |
+| **Aggregate** | **99.87%** | **99.95%** | **-0.082%** | |
 
 ### High-Variance Mode Convergence
 
-High-risk, high-row configurations (e.g., `high_16rows`) show the largest deviations. This is expected: the 1,000x jackpot slot at probability 1/65,536 means only ~3 jackpot hits are expected in 200,000 rounds. Random variation in the jackpot count produces multi-percent RTP swings. These deviations fall within the 5σ tolerance band used for per-configuration assertions.
+High-risk, high-row configurations (e.g., `high_16rows`) show the largest deviations. This is expected: the 1,000x jackpot slot at probability 1/65,536 means only ~15 jackpot hits are expected in 1,000,000 rounds. Random variation in the jackpot count produces multi-percent RTP swings. These deviations fall within the 5σ tolerance band used for per-configuration assertions.
 
-Full simulation data is available in `outputs/plinko/simulation-summary.json`.
+Full simulation data is available in `outputs/plinko/simulation-summary.json`. **[Evidence: E52, E53, E54]**
 
 ## Empirical RTP from Live Testing
+
+> **Note:** Live bet data demonstrates determinism, parity, payout formula correctness, seed integrity, and nonce sequencing. It is not used as RTP evidence — RTP is proven by mathematical calculation and Monte Carlo simulation above. The figures below illustrate variance behavior at small sample sizes.
 
 ### Per-Phase Results
 
@@ -142,7 +140,7 @@ Full simulation data is available in `outputs/plinko/simulation-summary.json`.
 
 ### Variance Explanation
 
-The empirical RTP of 104.08% exceeds the theoretical 99.9% by 4.18 percentage points. This is entirely attributable to short-term variance and does not indicate any systematic bias.
+The empirical RTP of 104.08% exceeds the theoretical 99.9% by 4.18 percentage points. This deviation illustrates the magnitude of short-term variance at small sample sizes and does not indicate any systematic bias. These figures are not used as RTP evidence.
 
 **Why High risk phases inflate the empirical RTP:**
 
@@ -190,7 +188,7 @@ For the configurations we could fully verify (particularly 8-row boards where al
 | Test | Source File | Status |
 |------|------------|--------|
 | Theoretical RTP calculation | `PlinkoAuditExecutionChecklistTests.ts` | ✅ Verified |
-| Simulation convergence (5.4M rounds) | `PlinkoAuditExecutionChecklistTests.ts` | ✅ Verified |
+| Simulation convergence (27M rounds) | `PlinkoAuditExecutionChecklistTests.ts` | ✅ Verified |
 | Payout formula verification | `PlinkoWinCalculatorTests.ts` | ✅ Verified |
 | Multiplier table consistency | `PlinkoAuditExecutionChecklistTests.ts` | ✅ Verified |
 

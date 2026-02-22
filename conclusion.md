@@ -29,9 +29,7 @@
 
 **Multiplier tables should be published.** The multiplier tables for each (risk, rows) configuration are not available in a machine-readable format. Publishing these tables (e.g., as a JSON API endpoint or on the fairness page) would allow players and auditors to independently verify the theoretical RTP without needing to collect bets across every configuration.
 
-**The drand integration is incomplete.** The API includes `drand_round` and `drand_randomness` fields that are currently null. Integrating with the drand distributed randomness beacon would provide external, publicly verifiable entropy for server seed generation — strengthening the trust model by removing the need to trust Duel's internal PRNG.
-
-**Seed commitments are ephemeral.** Unlike blockchain-based casinos where commitments are stored on-chain, Duel's commitments exist only in the API response and the player's local view. If a player fails to record the committed hash before betting, they cannot retroactively prove what was committed. A public commitment log (even just a signed timestamp server) would address this.
+**Seed commitments are ephemeral.** Duel's commitments exist only in the API response and the player's local view. If a player fails to record the committed hash before betting, they cannot retroactively prove what was committed. A public commitment log (even just a signed timestamp server) would address this.
 
 ## Final Verdict
 
@@ -53,9 +51,9 @@
 
 While the game passes all provable fairness tests, players should be aware of the following:
 
-1. **Centralized platform risk.** Duel.com is not a blockchain casino. Player balances, bet records, and payout execution are managed by Duel's internal systems. The provably fair guarantee covers outcome integrity, not platform solvency or operational continuity.
+1. **Centralized platform risk.** Player balances, bet records, and payout execution are managed by Duel's internal systems. The provably fair guarantee covers outcome integrity, not platform solvency or operational continuity.
 
-2. **Multiplier table governance.** The multiplier tables that determine the house edge are set by Duel.com and could theoretically be changed without notice. The `effective_edge` field provides some transparency, but there is no immutable record of multiplier table versions.
+2. **Multiplier table governance.** The multiplier tables that determine the house edge are set by Duel.com and could theoretically be changed without notice. The `effective_edge` field provides some transparency, but there is no versioned record of multiplier table changes.
 
 3. **Active seed limitation.** The current active server seed cannot be verified until it is rotated. Bets placed under the active seed must be taken on faith until the next rotation reveals the seed for verification.
 

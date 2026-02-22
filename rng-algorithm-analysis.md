@@ -185,22 +185,6 @@ Seed 24: SHA-256(hexDecode("..."))          === "..."          ✓
 
 All 24 commitments are intact. The server did not alter any seed after committing to its hash. **[Evidence: E29]**
 
-### Comparison to Blockchain-Based Approaches
-
-Some casinos (such as Luck.io on Solana) use on-chain VRF (Verifiable Random Functions) or commit-reveal with blockchain timestamps. Duel's approach differs:
-
-| Property | Duel.com (HMAC-SHA256) | Blockchain VRF |
-|----------|----------------------|----------------|
-| Commit mechanism | SHA-256 hash published to client | Hash stored on-chain |
-| Reveal mechanism | Server reveals on rotation | On-chain transaction |
-| Re-rolling prevention | Hash commitment prevents changes | VRF proof prevents changes |
-| Tamper evidence | Player must store committed hash | Blockchain stores immutably |
-| Entropy source | Server PRNG (opaque) | VRF with public verification |
-
-The key difference is **auditability of the commitment**. On a blockchain, the commitment is stored publicly and immutably. On Duel.com, the commitment is delivered to the player via API and displayed in the UI. If a player fails to record the committed hash before betting, they cannot retroactively prove what was committed. However, during the betting session itself, the commit-reveal protocol provides equivalent protection against outcome manipulation.
-
-For the purpose of this audit, we recorded all committed hashes at the time of seed rotation, before any bets were placed with the new seeds. This allowed full retroactive verification of every bet in our dataset.
-
 ## Evidence Coverage
 
 | Test | Source File | Status |

@@ -4,13 +4,13 @@ import {PlinkoGameProfiles} from "../../src/plinko/PlinkoGameProfiles";
 
 describe("Plinko Win Calculator Tests", () => {
 
-    it("Returns betAmount * tableMultiplier for each risk/rows/slot combination", () => {
+    it("Returns betAmount * API multiplier for each risk/rows/slot combination", () => {
         const betAmount = Math.random() * 100 + 1;
         for (const risk of ["low", "medium", "high"] as const) {
             for (let rows = 8; rows <= 16; rows++) {
                 for (let slot = 0; slot <= rows; slot++) {
-                    const tableMultiplier = PlinkoGameProfiles.getMultiplier(risk, rows, slot);
-                    const expected = betAmount * tableMultiplier;
+                    const apiMultiplier = PlinkoGameProfiles.getMultiplier(risk, rows, slot);
+                    const expected = betAmount * apiMultiplier;
                     const actual = PlinkoWinCalculator.calculateWinnings(betAmount, slot, rows, risk);
                     expect(actual).to.eql(expected);
                 }
@@ -44,10 +44,10 @@ describe("Plinko Win Calculator Tests", () => {
 
     it("High risk gives higher variance payouts than low risk for same rows", () => {
         const rows = 12;
-        const lowMin = Math.min(...PlinkoGameProfiles.MULTIPLIERS.low[rows]);
-        const lowMax = Math.max(...PlinkoGameProfiles.MULTIPLIERS.low[rows]);
-        const highMin = Math.min(...PlinkoGameProfiles.MULTIPLIERS.high[rows]);
-        const highMax = Math.max(...PlinkoGameProfiles.MULTIPLIERS.high[rows]);
+        const lowMin = Math.min(...PlinkoGameProfiles.API_MULTIPLIERS.low[rows]);
+        const lowMax = Math.max(...PlinkoGameProfiles.API_MULTIPLIERS.low[rows]);
+        const highMin = Math.min(...PlinkoGameProfiles.API_MULTIPLIERS.high[rows]);
+        const highMax = Math.max(...PlinkoGameProfiles.API_MULTIPLIERS.high[rows]);
 
         expect(highMax).to.be.greaterThan(lowMax);
         expect(highMin).to.be.below(lowMin);

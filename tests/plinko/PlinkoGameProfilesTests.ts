@@ -3,10 +3,10 @@ import {PlinkoGameProfiles} from "../../src/plinko/PlinkoGameProfiles";
 
 describe("Plinko Game Profiles", () => {
 
-    it("Every table has exactly (rows + 1) entries", () => {
+    it("Every API table has exactly (rows + 1) entries", () => {
         for (const risk of ["low", "medium", "high"] as const) {
             for (let rows = 8; rows <= 16; rows++) {
-                const table = PlinkoGameProfiles.MULTIPLIERS[risk][rows];
+                const table = PlinkoGameProfiles.API_MULTIPLIERS[risk][rows];
                 expect(table).to.be.an("array");
                 expect(table.length).to.eql(rows + 1,
                     `${risk}/${rows}: expected ${rows + 1} slots, got ${table.length}`
@@ -15,10 +15,22 @@ describe("Plinko Game Profiles", () => {
         }
     });
 
-    it("All multipliers are positive finite numbers", () => {
+    it("Every display table has exactly (rows + 1) entries", () => {
         for (const risk of ["low", "medium", "high"] as const) {
             for (let rows = 8; rows <= 16; rows++) {
-                const table = PlinkoGameProfiles.MULTIPLIERS[risk][rows];
+                const table = PlinkoGameProfiles.DISPLAY_MULTIPLIERS[risk][rows];
+                expect(table).to.be.an("array");
+                expect(table.length).to.eql(rows + 1,
+                    `${risk}/${rows}: expected ${rows + 1} slots, got ${table.length}`
+                );
+            }
+        }
+    });
+
+    it("All API multipliers are positive finite numbers", () => {
+        for (const risk of ["low", "medium", "high"] as const) {
+            for (let rows = 8; rows <= 16; rows++) {
+                const table = PlinkoGameProfiles.API_MULTIPLIERS[risk][rows];
                 for (let slot = 0; slot <= rows; slot++) {
                     expect(Number.isFinite(table[slot])).to.eql(true,
                         `${risk}/${rows}/slot${slot}: not finite`
@@ -31,10 +43,10 @@ describe("Plinko Game Profiles", () => {
         }
     });
 
-    it("Tables are symmetric (plinko is symmetric around center)", () => {
+    it("API tables are symmetric (plinko is symmetric around center)", () => {
         for (const risk of ["low", "medium", "high"] as const) {
             for (let rows = 8; rows <= 16; rows++) {
-                const table = PlinkoGameProfiles.MULTIPLIERS[risk][rows];
+                const table = PlinkoGameProfiles.API_MULTIPLIERS[risk][rows];
                 for (let slot = 0; slot <= rows; slot++) {
                     expect(table[slot]).to.eql(table[rows - slot],
                         `${risk}/${rows}: table[${slot}]=${table[slot]} ≠ table[${rows - slot}]=${table[rows - slot]}`
@@ -46,7 +58,7 @@ describe("Plinko Game Profiles", () => {
 
     it("Center slot has lowest multiplier in high risk (house-edge design)", () => {
         for (let rows = 8; rows <= 16; rows++) {
-            const table = PlinkoGameProfiles.MULTIPLIERS.high[rows];
+            const table = PlinkoGameProfiles.API_MULTIPLIERS.high[rows];
             const center = Math.floor(rows / 2);
             const centerVal = table[center];
             const edgeVal = table[0];
@@ -67,7 +79,7 @@ describe("Plinko Game Profiles", () => {
         let count = 0;
         for (const risk of ["low", "medium", "high"] as const) {
             for (let rows = 8; rows <= 16; rows++) {
-                const table = PlinkoGameProfiles.MULTIPLIERS[risk][rows];
+                const table = PlinkoGameProfiles.API_MULTIPLIERS[risk][rows];
                 expect(table).to.be.an("array");
                 count++;
             }
@@ -77,15 +89,30 @@ describe("Plinko Game Profiles", () => {
 
     it("High risk has highest edge multipliers at position 0 for all row counts", () => {
         for (let rows = 8; rows <= 16; rows++) {
-            const lowEdge = PlinkoGameProfiles.MULTIPLIERS.low[rows][0];
-            const medEdge = PlinkoGameProfiles.MULTIPLIERS.medium[rows][0];
-            const highEdge = PlinkoGameProfiles.MULTIPLIERS.high[rows][0];
+            const lowEdge = PlinkoGameProfiles.API_MULTIPLIERS.low[rows][0];
+            const medEdge = PlinkoGameProfiles.API_MULTIPLIERS.medium[rows][0];
+            const highEdge = PlinkoGameProfiles.API_MULTIPLIERS.high[rows][0];
             expect(highEdge).to.be.greaterThan(medEdge,
                 `rows=${rows}: high edge ${highEdge} should > medium ${medEdge}`
             );
             expect(medEdge).to.be.greaterThan(lowEdge,
                 `rows=${rows}: medium edge ${medEdge} should > low ${lowEdge}`
             );
+        }
+    });
+
+    it("API multiplier is within 2% of display multiplier for all slots", () => {
+        for (const risk of ["low", "medium", "high"] as const) {
+            for (let rows = 8; rows <= 16; rows++) {
+                const apiTable = PlinkoGameProfiles.API_MULTIPLIERS[risk][rows];
+                const displayTable = PlinkoGameProfiles.DISPLAY_MULTIPLIERS[risk][rows];
+                for (let slot = 0; slot <= rows; slot++) {
+                    const relError = Math.abs(apiTable[slot] - displayTable[slot]) / displayTable[slot];
+                    expect(relError).to.be.below(0.02,
+                        `${risk}/${rows}/slot${slot}: API ${apiTable[slot]} vs display ${displayTable[slot]}, error ${(relError * 100).toFixed(2)}%`
+                    );
+                }
+            }
         }
     });
 });

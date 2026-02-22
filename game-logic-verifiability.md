@@ -82,7 +82,7 @@ The multiplier values increase dramatically toward the edges, reflecting the low
 We verified that the same (risk, rows, slot) combination always produces the same multiplier across all 1,080 bets. Across 217 unique combinations observed:
 
 - **Inconsistencies found: 0**
-- Every time slot 4 was hit on medium/8-row, the multiplier was exactly `0.40310078`
+- Every time slot 4 was hit on medium/8-row, the multiplier was exactly `0.40401896`
 - Every time slot 0 was hit on high/15-row, the multiplier was exactly `625.x` (full precision value)
 
 This confirms the multiplier tables are deterministic and do not change between bets or sessions. **[Evidence: E38]**
@@ -112,15 +112,15 @@ The multiplier tables are displayed visually in the game UI but are not publishe
 
 This means players cannot independently verify the RTP of a configuration they haven't played. They can verify that their specific outcomes were correctly computed, but they cannot confirm the fairness of the overall payout structure without comprehensive testing.
 
-### No Drand/External Randomness
+### No External Randomness Source
 
-The API response includes `drand_round` and `drand_randomness` fields, both of which are `null` for Plinko. The drand (distributed randomness beacon) is a public randomness service that could provide external, publicly verifiable entropy. Its absence means all randomness comes from the server seed, whose generation process is opaque.
+The API response includes `drand_round` and `drand_randomness` fields, both of which are `null` for Plinko. All randomness comes from the server seed, whose generation process is opaque.
 
 This is not a fairness deficiency — the commit-reveal protocol prevents exploitation regardless of the seed's entropy source. But it does mean there is no external proof that the server seed was generated from a high-quality random source.
 
 ### Server-Side Computation Only
 
-The outcome computation happens entirely on the server. The client receives only the final result (`final_slot`, `payout_multiplier`, `win_amount`). Players cannot observe the intermediate HMAC values for each row in real time — they can only verify after the fact, post-rotation. This is standard for centralized provably fair games but differs from blockchain implementations where computation occurs in a publicly verifiable smart contract.
+The outcome computation happens entirely on the server. The client receives only the final result (`final_slot`, `payout_multiplier`, `win_amount`). Players cannot observe the intermediate HMAC values for each row in real time — they can only verify after the fact, post-rotation.
 
 ## Evidence Coverage
 
@@ -134,6 +134,6 @@ The outcome computation happens entirely on the server. The client receives only
 **Code References:**
 - Algorithm implementation: `src/plinko/PlinkoResultsGenerator.ts`
 - Game profiles: `src/plinko/PlinkoGameProfiles.ts`
-- Standalone verifier: `scripts/validateDuelPlinko.ts`
+- Verification tests: `tests/plinko/PlinkoResultsGeneratorTests.ts`
 
 **Dataset:** `duel-plinko-sim-1771364316980.json` (1,080 bets, 24 seed sessions)
