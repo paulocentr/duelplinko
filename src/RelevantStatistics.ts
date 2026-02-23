@@ -6,7 +6,7 @@ export class RelevantStatistics {
                 public standardErrorOfRTP: number,
                 public standardDeviation: number,
                 public rtpConvergence: Map<number, number>,
-                public rtpConvergenceSD: Map<number, number>,
+                public rtpConvergenceSE: Map<number, number>,
                 public rtpConvergenceSimulationDetails: RTPConvergenceSimulationDetails,
                 public chartTitle: string = "",
                 public chartFileName: string = "",

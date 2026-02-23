@@ -26,17 +26,7 @@ If you want more consistent returns, Low risk configurations offer similar long-
 
 ## For Duel.com
 
-### 1. Publish Machine-Readable Multiplier Tables
-
-Make the complete multiplier tables for all 27 Plinko configurations available via an API endpoint or as structured data on the fairness page. This would allow players and auditors to independently calculate theoretical RTP without needing to place real bets across every configuration.
-
-Suggested implementation:
-```
-GET /api/v2/plinko/multipliers?risk_level=2&rows=8
-→ { "multipliers": [13.0, 3.0, 1.3, 0.7, 0.403..., 0.7, 1.3, 3.0, 13.0] }
-```
-
-### 2. Document the Effective Edge Mechanism
+### 1. Document the Effective Edge Mechanism
 
 The `effective_edge` field in API responses is a positive transparency feature, but it is not documented on the fairness page. Consider adding an explanation of:
 

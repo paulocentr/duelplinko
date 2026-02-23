@@ -7,8 +7,8 @@ All audit code, test data, and verification scripts are available in a public re
 | Item | Value |
 |------|-------|
 | Dataset | `duel-plinko-sim-1771364316980.json` |
-| Dataset SHA-256 | `2000cb5f865263ac2556cc7781682ff66fcd32c9c1230a27bf1ce74638c70c16` |
-| Dataset records | 1,080 bets across 24 seed sessions |
+| Dataset SHA-256 | `9a4dcd3d5a0afaac85d3ad62cf0628843e1f628414abf165022a251ec09a37c2` |
+| Dataset records | 1,080 bets across 25 seed sessions |
 | Dataset created | 2026-02-17T21:25:59.275Z |
 | Test framework | TypeScript + Mocha + Mochawesome |
 
@@ -48,7 +48,7 @@ This executes all Plinko test suites and produces:
 ### Run specific test categories
 
 ```bash
-# All Plinko tests (45 tests)
+# All Plinko tests (42 tests)
 npx mocha --spec tests/plinko/**/*.ts
 
 # Algorithm correctness tests only
@@ -62,18 +62,6 @@ npx mocha --spec tests/plinko/PlinkoGameProfilesTests.ts
 
 # Full audit execution checklist (determinism, payouts, simulation, evidence artifacts)
 npx mocha --spec tests/plinko/PlinkoAuditExecutionChecklistTests.ts
-```
-
-### Generate PDF report
-
-```bash
-npm run convert-audit-results-to-pdf
-```
-
-### Generate Dice audit files (demonstrates writer reusability)
-
-```bash
-npm run generate-dice-audit-files
 ```
 
 ## Verifying the Dataset
@@ -110,7 +98,7 @@ start outputs/plinko/audit-results/audit-results.html
 When all tests pass, the output shows:
 
 ```
-  45 passing
+  42 passing
 ```
 
 Broken down by suite:

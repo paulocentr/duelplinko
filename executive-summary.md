@@ -14,13 +14,13 @@ Plinko is a variable-variance game where a ball drops through a triangular pin f
 
 The random number generation system uses HMAC-SHA256, a well-established cryptographic construction. The server seed is encoded as raw bytes using `hexToBytes()`, and the HMAC message incorporates the client seed, nonce, and a per-row cursor value. This produces independent, uniformly distributed random bits at each row of the Plinko board.
 
-The commit-reveal protocol operates correctly. Before any bets are placed, the server commits to a seed by publishing its SHA-256 hash. After seed rotation, the plaintext server seed is revealed, and our independent verification confirmed that all 24 committed hashes matched their revealed seeds exactly. **[Evidence: E12, E29]**
+The commit-reveal protocol operates correctly. Before any bets are placed, the server commits to a seed by publishing its SHA-256 hash. After seed rotation, the plaintext server seed is revealed, and our independent verification confirmed that all 25 committed hashes matched their revealed seeds exactly. **[Evidence: E12, E29]**
 
 ### Outcome Determinism — PASS
 
 We collected 1,080 live bets across all 27 game configurations (40 bets per configuration) using an automated capture script. After seed rotation revealed the server seeds, we independently recomputed every bet outcome using our own HMAC-SHA256 implementation in Node.js.
 
-Of the 1,080 bets, 1,070 were verifiable (the remaining 10 belong to the final active seed segment, which has not yet been rotated). Every verifiable bet produced an identical result to the live outcome. The probability of achieving 1,070 consecutive matches by chance on a manipulated system is astronomically small — less than 1 in 2^1070. **[Evidence: E28, E31]**
+All 25 server seeds were rotated and revealed, making every bet in the dataset verifiable. Every bet produced an identical result to the live outcome. The probability of achieving 1,080 consecutive matches by chance on a manipulated system is astronomically small — less than 1 in 2^1080. **[Evidence: E28, E31]**
 
 ### Payout Accuracy — PASS
 
@@ -52,7 +52,7 @@ These results are consistent with genuinely random, unbiased left-right decision
 
 ### Nonce Integrity — PASS
 
-Across all 24 seed segments, nonce values increment sequentially with zero gaps and zero duplicates. Each seed rotation resets the nonce counter, and bet sequence continuity is maintained within each segment. This confirms that no bets were inserted, removed, or replayed. **[Evidence: E30, E39]**
+Across all 25 seed segments, nonce values increment sequentially with zero gaps and zero duplicates. Each seed rotation resets the nonce counter, and bet sequence continuity is maintained within each segment. This confirms that no bets were inserted, removed, or replayed. **[Evidence: E30, E39]**
 
 ### Multiplier Consistency — PASS
 
@@ -70,4 +70,4 @@ Empirical RTP across our 1,080-bet dataset was 104.08%. This figure is a varianc
 
 ### Trust Considerations
 
-While the cryptographic fairness mechanism is sound, players should be aware that Duel.com is a centralized platform. The multiplier tables are set by the operator and are not published in a machine-readable format. Server seed generation occurs server-side and its entropy source cannot be audited externally. These are standard characteristics of centralized provably fair casinos and do not diminish the effectiveness of the commit-reveal fairness guarantee, but they do represent areas where additional transparency would strengthen player trust.
+While the cryptographic fairness mechanism is sound, players should be aware that Duel.com is a centralized platform. The multiplier tables are set by the operator and are available via the official API endpoint `GET /api/v2/plinko/config`. Server seed generation occurs server-side and its entropy source cannot be audited externally. These are standard characteristics of centralized provably fair casinos and do not diminish the effectiveness of the commit-reveal fairness guarantee.

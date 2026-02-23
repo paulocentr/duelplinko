@@ -31,7 +31,7 @@ export class RTPConvergenceSimulationDetails {
         public lastCommitHash: string = "",
         public seeds: Array<any> = [],
         public rtpConvergence: Array<any> = [],
-        public rtpConvergenceSD: Array<any> = [],
+        public rtpConvergenceSE: Array<any> = [],
     ) {
         this.setLastCommitHash();
     }
@@ -70,9 +70,9 @@ export class RTPConvergenceSimulationDetails {
         this.simulationRunTimeInMs = simulationRunTimeInMs;
     }
 
-    public setConvergenceData(rtpConvergence: Map<number, number>, rtpConvergenceSD: Map<number, number>) {
+    public setConvergenceData(rtpConvergence: Map<number, number>, rtpConvergenceSE: Map<number, number>) {
         this.rtpConvergence = [...rtpConvergence];
-        this.rtpConvergenceSD = [...rtpConvergenceSD];
+        this.rtpConvergenceSE = [...rtpConvergenceSE];
     }
 
     private countSimulatedTheoreticalRTPDifference() {

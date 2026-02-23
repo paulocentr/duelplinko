@@ -20,7 +20,7 @@ Outcomes are generated from a cryptographically secure pseudorandom function. Th
 | Entropy purity | ✅ Pass | Three sources only: server seed, client seed, nonce |
 | Output uniformity | ✅ Pass | Zero modulo bias for `value % 2` on uint32 |
 | Per-row independence | ✅ Pass | Unique cursor per row; HMAC outputs are independent |
-| Commit-reveal protocol | ✅ Pass | 24/24 seed commitments verified |
+| Commit-reveal protocol | ✅ Pass | 25/25 seed commitments verified |
 
 **Overall Verdict:** Unbiased and Cryptographically Sound
 
@@ -173,17 +173,17 @@ The commit-reveal protocol operates as follows:
 
 ### Verification Results
 
-We performed 24 seed rotations during our testing. Every rotation correctly revealed the server seed, and all 24 SHA-256 hash verifications passed:
+We performed 25 seed rotations during our testing. Every rotation correctly revealed the server seed, and all 25 SHA-256 hash verifications passed:
 
 ```
 Seed 1:  SHA-256(hexDecode("b6d2bb3d...")) === "5548792213..." ✓
 Seed 2:  SHA-256(hexDecode("21fd096a...")) === "c1722335a7..." ✓
 Seed 3:  SHA-256(hexDecode("add9684a...")) === "395af7ac85..." ✓
 ...
-Seed 24: SHA-256(hexDecode("..."))          === "..."          ✓
+Seed 25: SHA-256(hexDecode("..."))          === "..."          ✓
 ```
 
-All 24 commitments are intact. The server did not alter any seed after committing to its hash. **[Evidence: E29]**
+All 25 commitments are intact. The server did not alter any seed after committing to its hash. **[Evidence: E29]**
 
 ## Evidence Coverage
 
@@ -201,4 +201,4 @@ All 24 commitments are intact. The server did not alter any seed after committin
 - Determinism test: `tests/plinko/PlinkoResultsGeneratorTests.ts`
 - Seed verification: `tests/plinko/PlinkoAuditExecutionChecklistTests.ts`
 
-**Dataset:** `duel-plinko-sim-1771364316980.json` (1,080 bets, 24 seed sessions)
+**Dataset:** `duel-plinko-sim-1771364316980.json` (1,080 bets, 25 seed sessions)

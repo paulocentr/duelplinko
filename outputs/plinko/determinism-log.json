@@ -2,11 +2,11 @@
   "meta": {
     "game": "plinko",
     "dataset": "duel-plinko-sim-1771364316980.json",
-    "datasetHash": "2000cb5f865263ac2556cc7781682ff66fcd32c9c1230a27bf1ce74638c70c16",
-    "commit": "3172ff54eaa4a77b84c085fdcd961de72e61fa3f",
-    "generatedAt": "2026-02-21T17:53:25.366Z",
-    "totalBets": 1070,
-    "matched": 1070,
+    "datasetHash": "9a4dcd3d5a0afaac85d3ad62cf0628843e1f628414abf165022a251ec09a37c2",
+    "commit": "3f4ced2e1d32840592a2be7d6f7c9f0d75fc44bc",
+    "generatedAt": "2026-02-23T21:08:16.913Z",
+    "totalBets": 1080,
+    "matched": 1080,
     "mismatched": 0
   },
   "results": [
@@ -9638,6 +9638,96 @@
       "nonce": 49,
       "liveResult": 9,
       "recomputedResult": 9,
+      "match": true
+    },
+    {
+      "betId": 56201578,
+      "serverSeedHashed": "c8c7d094b385bcfe1467dd596fee3383fa57844c6a85254f5bd7a757adfde51b",
+      "clientSeed": "BNQL6bqOYP",
+      "nonce": 0,
+      "liveResult": 9,
+      "recomputedResult": 9,
+      "match": true
+    },
+    {
+      "betId": 56201584,
+      "serverSeedHashed": "c8c7d094b385bcfe1467dd596fee3383fa57844c6a85254f5bd7a757adfde51b",
+      "clientSeed": "BNQL6bqOYP",
+      "nonce": 1,
+      "liveResult": 6,
+      "recomputedResult": 6,
+      "match": true
+    },
+    {
+      "betId": 56201589,
+      "serverSeedHashed": "c8c7d094b385bcfe1467dd596fee3383fa57844c6a85254f5bd7a757adfde51b",
+      "clientSeed": "BNQL6bqOYP",
+      "nonce": 2,
+      "liveResult": 7,
+      "recomputedResult": 7,
+      "match": true
+    },
+    {
+      "betId": 56201593,
+      "serverSeedHashed": "c8c7d094b385bcfe1467dd596fee3383fa57844c6a85254f5bd7a757adfde51b",
+      "clientSeed": "BNQL6bqOYP",
+      "nonce": 3,
+      "liveResult": 5,
+      "recomputedResult": 5,
+      "match": true
+    },
+    {
+      "betId": 56201595,
+      "serverSeedHashed": "c8c7d094b385bcfe1467dd596fee3383fa57844c6a85254f5bd7a757adfde51b",
+      "clientSeed": "BNQL6bqOYP",
+      "nonce": 4,
+      "liveResult": 6,
+      "recomputedResult": 6,
+      "match": true
+    },
+    {
+      "betId": 56201598,
+      "serverSeedHashed": "c8c7d094b385bcfe1467dd596fee3383fa57844c6a85254f5bd7a757adfde51b",
+      "clientSeed": "BNQL6bqOYP",
+      "nonce": 5,
+      "liveResult": 6,
+      "recomputedResult": 6,
+      "match": true
+    },
+    {
+      "betId": 56201600,
+      "serverSeedHashed": "c8c7d094b385bcfe1467dd596fee3383fa57844c6a85254f5bd7a757adfde51b",
+      "clientSeed": "BNQL6bqOYP",
+      "nonce": 6,
+      "liveResult": 5,
+      "recomputedResult": 5,
+      "match": true
+    },
+    {
+      "betId": 56201604,
+      "serverSeedHashed": "c8c7d094b385bcfe1467dd596fee3383fa57844c6a85254f5bd7a757adfde51b",
+      "clientSeed": "BNQL6bqOYP",
+      "nonce": 7,
+      "liveResult": 5,
+      "recomputedResult": 5,
+      "match": true
+    },
+    {
+      "betId": 56201606,
+      "serverSeedHashed": "c8c7d094b385bcfe1467dd596fee3383fa57844c6a85254f5bd7a757adfde51b",
+      "clientSeed": "BNQL6bqOYP",
+      "nonce": 8,
+      "liveResult": 7,
+      "recomputedResult": 7,
+      "match": true
+    },
+    {
+      "betId": 56201610,
+      "serverSeedHashed": "c8c7d094b385bcfe1467dd596fee3383fa57844c6a85254f5bd7a757adfde51b",
+      "clientSeed": "BNQL6bqOYP",
+      "nonce": 9,
+      "liveResult": 12,
+      "recomputedResult": 12,
       "match": true
     }
   ]

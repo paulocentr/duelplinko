@@ -14,28 +14,12 @@ export class Utils {
             }
 
             const totalTries = Array.from(stats.rtpConvergence.keys()).pop() as number;
-            await RTPConvergenceChart.generate(stats.rtpConvergence, stats.rtpConvergenceSD, theoreticalGameRTP, totalTries / 10, dir, simulationDuration, stats.chartTitle, stats.chartFileName);
+            await RTPConvergenceChart.generate(stats.rtpConvergence, stats.rtpConvergenceSE, theoreticalGameRTP, totalTries / 10, dir, simulationDuration, stats.chartTitle, stats.chartFileName);
 
             stats.rtpConvergenceSimulationDetails.setTheoreticalRTP(theoreticalGameRTP);
             stats.rtpConvergenceSimulationDetails.setSimulationRunTime(simulationDuration);
             await stats.rtpConvergenceSimulationDetails.saveToJSON(dir + "/simulation-details/", stats.chartFileName);
         }
-    }
-
-    public static generateArrayOfConsecutiveNumbers(from: number, to: number) {
-        const array = [];
-        for (let i = from; i <= to; i++) {
-            array.push(i);
-        }
-        return array;
-    }
-
-    public static generateArrayOfZeros(length: number): Array<number> {
-        const array = [];
-        for (let i = 0; i < length; i++) {
-            array.push(0);
-        }
-        return array;
     }
 
     public static binomial(n: number, k: number): number {

@@ -5,7 +5,7 @@
 - Slot distribution against expected binomial B(n, 0.5) using chi-squared goodness-of-fit
 - Extreme edge-slot frequencies at 1/2^n probability
 - Multiplier table consistency across all 1,080 bets
-- Nonce sequence continuity across 24 seed segments
+- Nonce sequence continuity across 25 seed segments
 - Win/loss streak lengths for evidence of non-random clustering
 - Zero Edge rakeback feature distribution
 
@@ -20,7 +20,7 @@ The observed outcomes match the expected random distribution. No patterns were f
 | Chi-squared goodness-of-fit (all 9 row configs) | ✅ Pass | All below critical value at p=0.05 |
 | Edge slot frequencies | ✅ Pass | Consistent with (1/2)^n probability |
 | Multiplier consistency (217 combinations) | ✅ Pass | 0 inconsistencies across 1,080 bets |
-| Nonce continuity (24 segments) | ✅ Pass | 0 gaps, 0 duplicates |
+| Nonce continuity (25 segments) | ✅ Pass | 0 gaps, 0 duplicates |
 | Streak analysis | ✅ Pass | All streaks within expected range |
 
 **Overall Verdict:** No statistical anomalies detected.
@@ -87,15 +87,15 @@ Since slot distribution depends only on row count (risk level affects multiplier
 
 | Rows | χ² Statistic | df | Critical Value (p=0.05) | Result |
 |------|--------------|----|------------------------|--------|
-| 8    | 3.701        | 8  | 15.507                 | **PASS** |
-| 9    | 5.119        | 9  | 16.919                 | **PASS** |
-| 10   | 4.954        | 10 | 18.307                 | **PASS** |
-| 11   | 11.978       | 11 | 19.675                 | **PASS** |
-| 12   | 15.816       | 12 | 21.026                 | **PASS** |
-| 13   | 15.603       | 13 | 22.362                 | **PASS** |
-| 14   | 17.171       | 14 | 23.685                 | **PASS** |
-| 15   | 11.785       | 15 | 24.996                 | **PASS** |
-| 16   | 9.864        | 16 | 26.296                 | **PASS** |
+| 8    | 3.156        | 8  | 15.507                 | **PASS** |
+| 9    | 4.946        | 9  | 16.919                 | **PASS** |
+| 10   | 5.170        | 10 | 18.307                 | **PASS** |
+| 11   | 11.553       | 11 | 19.675                 | **PASS** |
+| 12   | 13.350       | 12 | 21.026                 | **PASS** |
+| 13   | 13.890       | 13 | 22.362                 | **PASS** |
+| 14   | 17.996       | 14 | 23.685                 | **PASS** |
+| 15   | 12.548       | 15 | 24.996                 | **PASS** |
+| 16   | 11.187       | 16 | 26.296                 | **PASS** |
 
 All 27 configurations pass. The full per-config results are in `outputs/plinko/chi-squared-results.json`. **[Evidence: E36, E37]**
 
@@ -143,7 +143,7 @@ This confirms that multiplier tables are static and deterministic — the payout
 
 ### Methodology
 
-Within each seed segment, nonces should increment by exactly 1 for each bet, starting from 0 after rotation. We analyzed all 24 seed segments for:
+Within each seed segment, nonces should increment by exactly 1 for each bet, starting from 0 after rotation. We analyzed all 25 seed segments for:
 
 - **Gaps**: A nonce value that is skipped (e.g., going from 5 to 7)
 - **Duplicates**: The same nonce appearing twice within a segment
@@ -153,7 +153,7 @@ Within each seed segment, nonces should increment by exactly 1 for each bet, sta
 
 | Metric | Value |
 |--------|-------|
-| Seed segments analyzed | 24 |
+| Seed segments analyzed | 25 |
 | Total bets across all segments | 1,080 |
 | Nonce gaps detected | **0** |
 | Nonce duplicates detected | **0** |
@@ -241,7 +241,6 @@ The existence of `effective_edge` as an API field is notable: it confirms that D
 
 **Code References:**
 - Chi-squared test: `tests/plinko/PlinkoAuditExecutionChecklistTests.ts`
-- Multiplier extraction: `src/plinko/PlinkoAuditDataUtils.ts`
-- Game profiles: `src/plinko/PlinkoGameProfiles.ts`
+- Game profiles and multiplier tables: `src/plinko/PlinkoGameProfiles.ts`
 
-**Dataset:** `duel-plinko-sim-1771364316980.json` (1,080 bets, 24 seed sessions)
+**Dataset:** `duel-plinko-sim-1771364316980.json` (1,080 bets, 25 seed sessions)

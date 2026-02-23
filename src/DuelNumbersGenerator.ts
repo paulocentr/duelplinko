@@ -2,18 +2,6 @@ import crypto from "crypto";
 
 export abstract class DuelNumbersGenerator {
 
-    public getCachedResult<T extends (...args: any[]) => any>(
-        fn: T,
-        ...params: Parameters<T>
-    ): ReturnType<T> {
-        const cacheKey = JSON.stringify(params);
-        if (!this.cache.has(cacheKey)) {
-            this.cache.set(cacheKey, fn(...params));
-        }
-
-        return this.cache.get(cacheKey) as ReturnType<T>;
-    }
-
     hexToBytes(hex: string): Uint8Array<ArrayBuffer> {
         const bytes = new Uint8Array(hex.length / 2);
         for (let i = 0; i < bytes.length; i++) {
@@ -27,13 +15,6 @@ export abstract class DuelNumbersGenerator {
             .map((b: number) => b.toString(16).padStart(2, "0"))
             .join("");
     }
-
-    hexToUtf8String(publicSeed: string): string {
-        const bytes = this.hexToBytes(publicSeed);
-        return new TextDecoder('utf-8').decode(bytes);
-    }
-
-    private readonly cache = new Map<string, any>();
 
     /**
      * Async HMAC-SHA256 using WebCrypto API.

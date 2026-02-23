@@ -28,11 +28,11 @@ export class RTPConvergenceChart {
         const finalRTPValue: number = [...rtp.values()].pop() as number;
 
         const rtpStandardErrorValues = Array.from(rtpStandardError.values());
-        const upperStandardDeviationBound = Array.from(rtp.values()).map((element: number, index: number) => {
+        const upperStandardErrorBound = Array.from(rtp.values()).map((element: number, index: number) => {
             return element + rtpStandardErrorValues[index];
         });
 
-        const lowerStandardDeviationBound = Array.from(rtp.values()).map((element: number, index: number) => {
+        const lowerStandardErrorBound = Array.from(rtp.values()).map((element: number, index: number) => {
             return element - rtpStandardErrorValues[index];
         });
 
@@ -41,13 +41,13 @@ export class RTPConvergenceChart {
         let minX: number = 0;
         let maxX: number = 0;
 
-        for (const v of upperStandardDeviationBound) {
+        for (const v of upperStandardErrorBound) {
             if (v > maxY) {
                 maxY = v;
             }
         }
 
-        for (const v of lowerStandardDeviationBound) {
+        for (const v of lowerStandardErrorBound) {
             if (v < minY) {
                 minY = v;
             }
@@ -85,15 +85,15 @@ export class RTPConvergenceChart {
                         backgroundColor: "rgb(54,162,235, 0.3)",
                     },
                     {
-                        label: "RTP Standard Deviation",
-                        data: upperStandardDeviationBound,
+                        label: "RTP ± Standard Error",
+                        data: upperStandardErrorBound,
                         pointRadius: 0,
                         borderColor: "#ff6384",
                         backgroundColor: "rgb(255,99,132, 0.3)",
                     },
                     {
                         label: RTPConvergenceChart.RTP_STANDARD_ERROR_LOWER_BOUND_NAME,
-                        data: lowerStandardDeviationBound,
+                        data: lowerStandardErrorBound,
                         pointRadius: 0,
                         borderColor: "#ff6384",
                         backgroundColor: "rgb(255,99,132, 0.3)",

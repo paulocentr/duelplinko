@@ -15,7 +15,6 @@ export class PayoutStatsTracker {
 
     private rtpConvergenceSimulationDetails: RTPConvergenceSimulationDetails = new RTPConvergenceSimulationDetails();
     private rtpConvergenceData: Map<number, number> = new Map<number, number>();
-    private rtpConvergenceStandardDeviationData: Map<number, number> = new Map<number, number>();
     private rtpConvergenceStandardErrorData: Map<number, number> = new Map<number, number>();
 
     private samplingStep: number = 10000;
@@ -48,13 +47,8 @@ export class PayoutStatsTracker {
         this.m2 += delta * delta2;
         if (this.n % this.samplingStep === 0) {
             this.rtpConvergenceData.set(this.n, this.rtp);
-            this.rtpConvergenceStandardDeviationData.set(this.n, this.standardErrorOfRTP);
             this.rtpConvergenceStandardErrorData.set(this.n, this.standardErrorOfRTP);
         }
-    }
-
-    public setSeedsUsed() {
-
     }
 
     public setChartTitle(chartTitle: string): void {
@@ -73,10 +67,6 @@ export class PayoutStatsTracker {
         return this.n;
     }
 
-    get meanReturn(): number {
-        return this.mean;
-    }
-
     get rtp(): number {
         return this.totalWin / this.totalBet;
     }
@@ -89,20 +79,12 @@ export class PayoutStatsTracker {
         return this.n > 0 ? this.m2 / this.n : 0;
     }
 
-    get sampleVariance(): number {
-        return this.n > 1 ? this.m2 / (this.n - 1) : 0;
-    }
-
     get standardDeviation(): number {
         return Math.sqrt(this.variance);
     }
 
     get rtpConvergence(): Map<number, number> {
         return this.rtpConvergenceData;
-    }
-
-    get rtpConvergenceSD(): Map<number, number> {
-        return this.rtpConvergenceStandardDeviationData;
     }
 
     get rtpConvergenceSE(): Map<number, number> {
@@ -118,29 +100,22 @@ export class PayoutStatsTracker {
         const rtpConvergenceSampled100k = new Map(
             [...this.rtpConvergence].filter(([x]) => x % 100000 === 0)
         );
-        const rtpConvergenceSDSampled100k = new Map(
-            [...this.rtpConvergenceSD].filter(([x]) => x % 100000 === 0)
+        const rtpConvergenceSESampled100k = new Map(
+            [...this.rtpConvergenceSE].filter(([x]) => x % 100000 === 0)
         );
 
-        this.rtpConvergenceSimulationDetails.setConvergenceData(rtpConvergenceSampled100k, rtpConvergenceSDSampled100k);
+        this.rtpConvergenceSimulationDetails.setConvergenceData(rtpConvergenceSampled100k, rtpConvergenceSESampled100k);
 
         return new RelevantStatistics(this.count,
             this.rtp,
             this.standardErrorOfRTP,
             this.standardDeviation,
             this.rtpConvergence,
-            this.rtpConvergenceSD,
+            this.rtpConvergenceSE,
             this.rtpConvergenceSimulationDetails,
             this.chartTitle,
             this.chartFileName,
         );
     }
 
-    public reset(): void {
-        this.totalBet = 0;
-        this.totalWin = 0;
-        this.n = 0;
-        this.mean = 0;
-        this.m2 = 0;
-    }
 }

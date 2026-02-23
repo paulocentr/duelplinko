@@ -3,7 +3,7 @@
 ## What Was Tested
 
 - Independent recomputation of every bet outcome using HMAC-SHA256
-- SHA-256 hash verification of all 24 committed server seeds
+- SHA-256 hash verification of all 25 committed server seeds
 - Nonce sequence integrity across all seed segments
 - Data collection methodology and capture integrity
 
@@ -15,10 +15,9 @@ Every bet outcome we tested was computed exactly as the algorithm specifies. The
 
 | Check | Result | Finding |
 |-------|--------|---------|
-| Outcome parity (1,070 verifiable bets) | ✅ Pass | 100.000% match rate |
-| Seed hash verification (24 rotations) | ✅ Pass | 24/24 hashes match |
-| Nonce sequence (24 segments) | ✅ Pass | 0 gaps, 0 duplicates |
-| Unverifiable bets (final active seed) | ⚠️ Expected | 10 bets under unrevealed seed |
+| Outcome parity (1,080 bets) | ✅ Pass | 100.000% match rate |
+| Seed hash verification (25 rotations) | ✅ Pass | 25/25 hashes match |
+| Nonce sequence (25 segments) | ✅ Pass | 0 gaps, 0 duplicates |
 
 **Overall Verdict:** Full deterministic parity confirmed.
 
@@ -44,9 +43,9 @@ The bet amount was set to the minimum ($0.01 USDT per bet), resulting in a total
 
 Seed rotation is critical to the audit process because the server seed is only revealed upon rotation. Without rotation, verification is impossible — the committed hash can only be checked against the plaintext seed after it is revealed.
 
-Our script performed 24 seed rotations (8 per phase), ensuring:
+Our script performed 25 seed rotations, ensuring:
 
-- Every bet in the dataset has a corresponding revealed server seed (except the 10 bets under the final active seed)
+- Every bet in the dataset has a corresponding revealed server seed
 - Multiple seed pairs were tested for each risk level
 - Nonce sequences were observed across multiple starting points (nonce resets to 0 after rotation)
 
@@ -84,7 +83,7 @@ The complete dataset is stored as a single JSON file (`duel-plinko-sim-177136431
       },
       "nonce": 54
     },
-    // ... 23 more seed rotations
+    // ... 24 more seed rotations
   ],
   "bets": [
     {
@@ -118,14 +117,13 @@ The verifier uses the exact same algorithm as Duel's published code — `hexToBy
 ```
 For each bet in dataset:
   1. Look up revealed server seed by server_seed_hashed
-  2. If not found (final active seed), skip as unverifiable
-  3. Compute: position = 0
-  4. For cursor = 0 to rows-1:
+  2. Compute: position = 0
+  3. For cursor = 0 to rows-1:
        hash = HMAC-SHA256(hexToBytes(serverSeed), UTF8("clientSeed:nonce:cursor"))
        value = readUInt32BE(hash, 0)
        position += value % 2
-  5. Compare computed position to response.final_slot
-  6. Record match or mismatch
+  4. Compare computed position to response.final_slot
+  5. Record match or mismatch
 ```
 
 ## Results
@@ -135,13 +133,12 @@ For each bet in dataset:
 | Metric | Value |
 |--------|-------|
 | Total bets in dataset | 1,080 |
-| Bets with revealed server seed | 1,070 |
-| Bets verified successfully | 1,070 |
+| Bets with revealed server seed | 1,080 |
+| Bets verified successfully | 1,080 |
 | Bets with mismatched results | 0 |
 | Match rate | **100.000%** |
-| Unverifiable bets (final active seed) | 10 |
 
-Every single verifiable bet produced an identical `final_slot` when computed independently. **[Evidence: E28, E31]**
+Every single bet produced an identical `final_slot` when computed independently. All 25 server seeds were rotated and revealed, leaving zero unverifiable bets. **[Evidence: E28, E31]**
 
 ### Sample Verified Bets
 
@@ -158,16 +155,16 @@ Every single verifiable bet produced an identical `final_slot` when computed ind
 
 ### Seed Hash Verification
 
-All 24 seed rotations were verified:
+All 25 seed rotations were verified:
 
 ```
 Seed  1: SHA-256(hexDecode("b6d2bb3d...")) = "55487922..." ✓
 Seed  2: SHA-256(hexDecode("21fd096a...")) = "c1722335..." ✓
 Seed  3: SHA-256(hexDecode("add9684a...")) = "395af7ac..." ✓
 ...
-Seed 24: SHA-256(hexDecode("..."))          = "..."        ✓
+Seed 25: SHA-256(hexDecode("..."))          = "..."        ✓
 
-Result: 24/24 hashes match (100%)
+Result: 25/25 hashes match (100%)
 ```
 
 **[Evidence: E29]**
@@ -182,36 +179,30 @@ Within each seed segment, nonce values increment sequentially starting from 0:
 | 2           | A     | 0–49           | 0    | 0          |
 | 3           | A     | 0–49           | 0    | 0          |
 | ...         | ...   | ...            | 0    | 0          |
-| 24          | C     | 0–9            | 0    | 0          |
+| 25          | C     | 0–9            | 0    | 0          |
 
-**Total across all 24 segments: 0 gaps, 0 duplicates.** **[Evidence: E30, E39]**
+**Total across all 25 segments: 0 gaps, 0 duplicates.** **[Evidence: E30, E39]**
 
 This confirms that no bets were inserted into or removed from the nonce sequence. Each bet incremented the nonce by exactly 1, and each seed rotation reset the nonce to 0.
 
 ## Statistical Implications
 
-The probability of a manipulated system producing 1,070 consecutive correct matches by coincidence depends on the specific manipulation. In the simplest case — if the server were producing random outcomes independent of the committed seed — the probability of all 1,070 matching is:
+The probability of a manipulated system producing 1,080 consecutive correct matches by coincidence depends on the specific manipulation. In the simplest case — if the server were producing random outcomes independent of the committed seed — the probability of all 1,080 matching is:
 
-For an 8-row board (9 possible slots), the chance of randomly hitting the correct slot is 1/9. For higher row counts, it's even lower. Even in the most generous case (if somehow each bet had a 50% chance of matching), the probability of 1,070 consecutive matches would be:
+For an 8-row board (9 possible slots), the chance of randomly hitting the correct slot is 1/9. For higher row counts, it's even lower. Even in the most generous case (if somehow each bet had a 50% chance of matching), the probability of 1,080 consecutive matches would be:
 
 ```
-P = (1/2)^1070 ≈ 10^(-322)
+P = (1/2)^1080 ≈ 10^(-325)
 ```
 
 This is a number so vanishingly small that it effectively eliminates any possibility of the results being coincidental. The only viable explanation is that the server computes outcomes using exactly the algorithm described — deterministically from the committed seeds.
-
-## Unverifiable Bets
-
-Ten bets (the last 10 in the dataset) were placed under the final active seed segment, which has not yet been rotated. These bets cannot be verified until the server seed is revealed through a future rotation. This is an inherent limitation of the commit-reveal protocol — the current active seed is always unverifiable until rotated.
-
-This does not represent a fairness concern. The 10 unverified bets were placed under the same system that produced 1,070 verified matches. There is no mechanism by which the server could selectively manipulate only the final segment while maintaining perfect parity for all previous segments.
 
 ## Evidence Coverage
 
 | Test | Source File | Status |
 |------|-----------|--------|
-| Outcome recomputation (1,070 bets) | `PlinkoResultsGeneratorTests.ts` | ✅ Verified |
-| Seed hash verification (24/24) | `PlinkoAuditExecutionChecklistTests.ts` | ✅ Verified |
+| Outcome recomputation (1,080 bets) | `PlinkoResultsGeneratorTests.ts` | ✅ Verified |
+| Seed hash verification (25/25) | `PlinkoAuditExecutionChecklistTests.ts` | ✅ Verified |
 | Nonce sequence analysis | `PlinkoAuditExecutionChecklistTests.ts` | ✅ Verified |
 | Determinism log generation | `PlinkoAuditExecutionChecklistTests.ts` | ✅ Verified |
 
@@ -225,4 +216,4 @@ This does not represent a fairness concern. The 10 unverified bets were placed u
 - `outputs/plinko/determinism-log.json` — Bet-by-bet verification results with dataset hash
 - `outputs/plinko/audit-results/audit-results.html` — Mochawesome HTML test report
 
-**Dataset:** `duel-plinko-sim-1771364316980.json` (1,080 bets, 24 seed sessions)
+**Dataset:** `duel-plinko-sim-1771364316980.json` (1,080 bets, 25 seed sessions)

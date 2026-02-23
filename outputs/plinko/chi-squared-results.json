@@ -4,194 +4,195 @@
     "samplesPerConfig": 1000000,
     "significanceLevel": 0.05,
     "expectedDistribution": "binomial B(n, 0.5)",
-    "generatedAt": "2026-02-21T17:53:25.345Z"
+    "generatedAt": "2026-02-23T21:08:16.858Z",
+    "note": "Risk level does not affect slot distribution. The ball path is determined by HMAC -> uint32 -> value % 2 at each row; risk level only maps the final slot to a payout multiplier. Chi-squared statistics are therefore identical across risk levels for the same row count. 9 independent tests (one per row count), reported across 27 configs as a sanity check."
   },
   "results": [
     {
       "config": "low_8",
-      "chiSquared": 3.7006710857142853,
+      "chiSquared": 3.1555071999999997,
       "df": 8,
       "critical": 15.507,
       "pass": true
     },
     {
       "config": "low_9",
-      "chiSquared": 5.1190003809523805,
+      "chiSquared": 4.94608253968254,
       "df": 9,
       "critical": 16.919,
       "pass": true
     },
     {
       "config": "low_10",
-      "chiSquared": 4.954075428571428,
+      "chiSquared": 5.170208507936508,
       "df": 10,
       "critical": 18.307,
       "pass": true
     },
     {
       "config": "low_11",
-      "chiSquared": 11.978427511688311,
+      "chiSquared": 11.55323434112554,
       "df": 11,
       "critical": 19.675,
       "pass": true
     },
     {
       "config": "low_12",
-      "chiSquared": 15.815990598557,
+      "chiSquared": 13.350379904184706,
       "df": 12,
       "critical": 21.026,
       "pass": true
     },
     {
       "config": "low_13",
-      "chiSquared": 15.603108579953382,
+      "chiSquared": 13.889762600777,
       "df": 13,
       "critical": 22.362,
       "pass": true
     },
     {
       "config": "low_14",
-      "chiSquared": 17.171239469863472,
+      "chiSquared": 17.9956737022977,
       "df": 14,
       "critical": 23.685,
       "pass": true
     },
     {
       "config": "low_15",
-      "chiSquared": 11.784882532223332,
+      "chiSquared": 12.548401301809303,
       "df": 15,
       "critical": 24.996,
       "pass": true
     },
     {
       "config": "low_16",
-      "chiSquared": 9.863697674769675,
+      "chiSquared": 11.18734783154623,
       "df": 16,
       "critical": 26.296,
       "pass": true
     },
     {
       "config": "medium_8",
-      "chiSquared": 3.7006710857142853,
+      "chiSquared": 3.1555071999999997,
       "df": 8,
       "critical": 15.507,
       "pass": true
     },
     {
       "config": "medium_9",
-      "chiSquared": 5.1190003809523805,
+      "chiSquared": 4.94608253968254,
       "df": 9,
       "critical": 16.919,
       "pass": true
     },
     {
       "config": "medium_10",
-      "chiSquared": 4.954075428571428,
+      "chiSquared": 5.170208507936508,
       "df": 10,
       "critical": 18.307,
       "pass": true
     },
     {
       "config": "medium_11",
-      "chiSquared": 11.978427511688311,
+      "chiSquared": 11.55323434112554,
       "df": 11,
       "critical": 19.675,
       "pass": true
     },
     {
       "config": "medium_12",
-      "chiSquared": 15.815990598557,
+      "chiSquared": 13.350379904184706,
       "df": 12,
       "critical": 21.026,
       "pass": true
     },
     {
       "config": "medium_13",
-      "chiSquared": 15.603108579953382,
+      "chiSquared": 13.889762600777,
       "df": 13,
       "critical": 22.362,
       "pass": true
     },
     {
       "config": "medium_14",
-      "chiSquared": 17.171239469863472,
+      "chiSquared": 17.9956737022977,
       "df": 14,
       "critical": 23.685,
       "pass": true
     },
     {
       "config": "medium_15",
-      "chiSquared": 11.784882532223332,
+      "chiSquared": 12.548401301809303,
       "df": 15,
       "critical": 24.996,
       "pass": true
     },
     {
       "config": "medium_16",
-      "chiSquared": 9.863697674769675,
+      "chiSquared": 11.18734783154623,
       "df": 16,
       "critical": 26.296,
       "pass": true
     },
     {
       "config": "high_8",
-      "chiSquared": 3.7006710857142853,
+      "chiSquared": 3.1555071999999997,
       "df": 8,
       "critical": 15.507,
       "pass": true
     },
     {
       "config": "high_9",
-      "chiSquared": 5.1190003809523805,
+      "chiSquared": 4.94608253968254,
       "df": 9,
       "critical": 16.919,
       "pass": true
     },
     {
       "config": "high_10",
-      "chiSquared": 4.954075428571428,
+      "chiSquared": 5.170208507936508,
       "df": 10,
       "critical": 18.307,
       "pass": true
     },
     {
       "config": "high_11",
-      "chiSquared": 11.978427511688311,
+      "chiSquared": 11.55323434112554,
       "df": 11,
       "critical": 19.675,
       "pass": true
     },
     {
       "config": "high_12",
-      "chiSquared": 15.815990598557,
+      "chiSquared": 13.350379904184706,
       "df": 12,
       "critical": 21.026,
       "pass": true
     },
     {
       "config": "high_13",
-      "chiSquared": 15.603108579953382,
+      "chiSquared": 13.889762600777,
       "df": 13,
       "critical": 22.362,
       "pass": true
     },
     {
       "config": "high_14",
-      "chiSquared": 17.171239469863472,
+      "chiSquared": 17.9956737022977,
       "df": 14,
       "critical": 23.685,
       "pass": true
     },
     {
       "config": "high_15",
-      "chiSquared": 11.784882532223332,
+      "chiSquared": 12.548401301809303,
       "df": 15,
       "critical": 24.996,
       "pass": true
     },
     {
       "config": "high_16",
-      "chiSquared": 9.863697674769675,
+      "chiSquared": 11.18734783154623,
       "df": 16,
       "critical": 26.296,
       "pass": true

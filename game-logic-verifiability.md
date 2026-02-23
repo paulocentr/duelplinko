@@ -6,11 +6,11 @@
 - Multiplier table structure (symmetry, risk-dependent values)
 - Independent reproducibility with 4 disclosed inputs
 - Transparency of published verification tools
-- Limitations in multiplier table discoverability
+- Multiplier table availability via official API
 
 ## What This Means for Players
 
-The game logic is fully deterministic and independently reproducible. Given four inputs (server seed, client seed, nonce, rows), anyone can compute the exact ball path and final slot. The algorithm is published on the fairness page with viewable source code. The only limitation is that complete multiplier tables are not available in a machine-readable format.
+The game logic is fully deterministic and independently reproducible. Given four inputs (server seed, client seed, nonce, rows), anyone can compute the exact ball path and final slot. The algorithm is published on the fairness page with viewable source code. Complete multiplier tables for all 27 configurations are available from the official API endpoint `GET /api/v2/plinko/config`.
 
 ## Verdict Summary
 
@@ -20,7 +20,7 @@ The game logic is fully deterministic and independently reproducible. Given four
 | Multiplier symmetry | ✅ Pass | Slot k = Slot (rows - k) for all configs |
 | Multiplier consistency (217 combinations) | ✅ Pass | 0 inconsistencies across 1,080 bets |
 | Published algorithm accuracy | ✅ Pass | Matches actual server behavior |
-| Multiplier table availability | ⚠️ Limited | No API endpoint for full tables |
+| Multiplier table availability | ✅ Pass | Full tables available via `GET /api/v2/plinko/config` |
 
 **Overall Verdict:** Game logic is transparent and verifiable.
 
@@ -102,23 +102,25 @@ Duel.com provides a built-in verification tool on the fairness page that accepts
 
 We built our own independent verifier in TypeScript/Node.js (using the standard `crypto` module) and confirmed that it produces identical results to both the live API outcomes and the fairness page's verification tool. **[Evidence: E27, E28]**
 
-## Transparency Limitations
+## Transparency Assessment
 
-While the algorithm and verification process are transparent, there are specific areas where full transparency is limited:
+### Multiplier Tables Are Available via API
 
-### Multiplier Tables Are Not Published
+The complete multiplier tables for all 27 configurations are available from Duel's official API endpoint `GET /api/v2/plinko/config`, which returns the full tables in machine-readable JSON format. This allows players and auditors to independently calculate the theoretical RTP for any configuration without needing to place bets.
 
-The multiplier tables are displayed visually in the game UI but are not published in a structured, machine-readable format. There is no endpoint like `/api/v2/plinko/multipliers` that would allow automated extraction of all 27 configurations' multiplier tables. Auditors must extract these values from actual bet responses — which requires placing real bets across every configuration.
+Our dataset of 1,080 bets covered 217 unique (risk, rows, slot) combinations through direct observation, and all observed multiplier values matched the official API tables exactly. The official tables enable complete RTP verification for all configurations, including those with extreme edge slots that are unlikely to be hit in small samples.
 
-This means players cannot independently verify the RTP of a configuration they haven't played. They can verify that their specific outcomes were correctly computed, but they cannot confirm the fairness of the overall payout structure without comprehensive testing.
+### Remaining Transparency Limitations
 
-### No External Randomness Source
+While the algorithm, verification process, and multiplier tables are fully transparent, there are specific areas where full transparency is limited:
+
+#### No External Randomness Source
 
 The API response includes `drand_round` and `drand_randomness` fields, both of which are `null` for Plinko. All randomness comes from the server seed, whose generation process is opaque.
 
 This is not a fairness deficiency — the commit-reveal protocol prevents exploitation regardless of the seed's entropy source. But it does mean there is no external proof that the server seed was generated from a high-quality random source.
 
-### Server-Side Computation Only
+#### Server-Side Computation Only
 
 The outcome computation happens entirely on the server. The client receives only the final result (`final_slot`, `payout_multiplier`, `win_amount`). Players cannot observe the intermediate HMAC values for each row in real time — they can only verify after the fact, post-rotation.
 
@@ -136,4 +138,4 @@ The outcome computation happens entirely on the server. The client receives only
 - Game profiles: `src/plinko/PlinkoGameProfiles.ts`
 - Verification tests: `tests/plinko/PlinkoResultsGeneratorTests.ts`
 
-**Dataset:** `duel-plinko-sim-1771364316980.json` (1,080 bets, 24 seed sessions)
+**Dataset:** `duel-plinko-sim-1771364316980.json` (1,080 bets, 25 seed sessions)

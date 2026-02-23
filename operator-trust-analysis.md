@@ -17,8 +17,8 @@ The commit-reveal protocol prevents outcome manipulation — the primary fairnes
 
 | Trust Area | Verifiable? | Finding |
 |-----------|-------------|---------|
-| Outcome determinism | ✅ Fully | 1,070/1,070 verified independently |
-| Seed commitment integrity | ✅ Fully | 24/24 hashes match |
+| Outcome determinism | ✅ Fully | 1,080/1,080 verified independently |
+| Seed commitment integrity | ✅ Fully | 25/25 hashes match |
 | Client seed incorporation | ✅ Verified | Changing client seed changes outcomes |
 | Nonce sequence | ✅ Verified | 0 gaps, 0 duplicates |
 | Payout accuracy | ✅ Verified | 1,080/1,080 exact matches |
@@ -79,7 +79,7 @@ Player balances, deposits, withdrawals, and transaction history are managed enti
 
 The Plinko algorithm is published in full on the fairness page (`/fairness/verify`). Players can inspect the JavaScript source code, copy it, and run it in their own environment. The algorithm is straightforward (HMAC-SHA256 with hex key encoding) and can be independently implemented in any programming language.
 
-Our independent verifier confirmed that the published algorithm matches the server's actual behavior across 1,070 verified bets. **[Evidence: E27, E28]**
+Our independent verifier confirmed that the published algorithm matches the server's actual behavior across 1,080 verified bets. **[Evidence: E27, E28]**
 
 ### Seed Commitment Integrity
 
@@ -91,7 +91,7 @@ This prevents the server from:
 - Computing the outcome first and then choosing a seed to produce it
 - Denying what seed was used for a given set of bets
 
-All 24 seed commitments in our dataset verified correctly. **[Evidence: E29]**
+All 25 seed commitments in our dataset verified correctly. **[Evidence: E29]**
 
 ### Nonce Sequence Continuity
 
@@ -123,7 +123,7 @@ There is no evidence of shared nonce spaces, and it would be contrary to standar
 
 ### Multiplier Table Fairness
 
-While we verified that multiplier tables are consistent within our testing session, we cannot guarantee they are fair in the mathematical sense without independent RTP calculation. The `effective_edge` field suggests a 0.1% edge (99.9% RTP), but this claim requires verification against the full multiplier table — which is only observable through actual gameplay.
+While we verified that multiplier tables are consistent within our testing session, we cannot guarantee they will remain unchanged in the future. The `effective_edge` field suggests a 0.1% edge (99.9% RTP), and this claim has been independently verified against the complete official multiplier tables available from the API endpoint `GET /api/v2/plinko/config`.
 
 We performed this verification for the most common configurations and found the RTP to be consistent with the stated edge. See [RTP Analysis](rtp-analysis.md) for details.
 

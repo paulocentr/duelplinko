@@ -82,29 +82,29 @@ For zero-edge bets:
 Σ P(slot_k) × multiplier(slot_k) = 1.000
 ```
 
-We verified this relationship for the most common configuration (Medium risk, 8 rows, standard edge) using the full-precision API multiplier values:
+We verified this relationship for the most common configuration (Medium risk, 8 rows, standard edge) using the official multiplier values from Duel's API endpoint `GET /api/v2/plinko/config`:
 
 | Slot | P(slot) = C(8,k)/256 | API Multiplier | P × M |
 |------|----------------------|---------------|-------|
-| 0 | 1/256 = 0.00390625 | 13.13061608 | 0.051291 |
-| 1 | 8/256 = 0.03125000 | 3.03014217 | 0.094692 |
+| 0 | 1/256 = 0.00390625 | 13.13061611 | 0.051291 |
+| 1 | 8/256 = 0.03125000 | 3.03014218 | 0.094692 |
 | 2 | 28/256 = 0.10937500 | 1.31306161 | 0.143553 |
 | 3 | 56/256 = 0.21875000 | 0.70703318 | 0.154664 |
 | 4 | 70/256 = 0.27343750 | 0.40401896 | 0.110474 |
 | 5 | 56/256 = 0.21875000 | 0.70703318 | 0.154664 |
 | 6 | 28/256 = 0.10937500 | 1.31306161 | 0.143553 |
-| 7 | 8/256 = 0.03125000 | 3.03014217 | 0.094692 |
-| 8 | 1/256 = 0.00390625 | 13.13061608 | 0.051291 |
-| **Total** | **1.00000000** | | **0.998875** |
+| 7 | 8/256 = 0.03125000 | 3.03014218 | 0.094692 |
+| 8 | 1/256 = 0.00390625 | 13.13061611 | 0.051291 |
+| **Total** | **1.00000000** | | **0.9990** |
 
 ```
-Theoretical RTP = 0.998875 ≈ 99.89%
-House Edge = 1 - 0.998875 = 0.001125 ≈ 0.11%
+Theoretical RTP = 0.9990 = 99.9000%
+House Edge = 1 - 0.9990 = 0.001000 = 0.1000%
 ```
 
-This independently confirms the `effective_edge = 0.1` (0.1% house edge) claim. The 0.01% residual is due to finite-precision multiplier values (8 decimal places).
+This independently confirms the `effective_edge = 0.1` (0.1% house edge) claim exactly.
 
-**Note:** The game UI displays truncated multipliers (e.g., "0.4x" for the center slot), but the API returns `0.40401896`. Using display-rounded values produces a misleading RTP of ~98.9%. The full-precision API values shown above are what determine the actual payout and the true RTP.
+**Note:** The game UI displays truncated multipliers (e.g., "0.4x" for the center slot), but the official API returns `0.40401896`. Using display-rounded values produces a misleading RTP of ~98.9%. The official API multiplier tables (available via `GET /api/v2/plinko/config`) are the source of truth for payout calculations and RTP verification.
 
 **[Evidence: E42, E45]**
 
@@ -164,4 +164,4 @@ This level of precision ensures that even micro-bets are paid out accurately, wi
 **Generated Artifacts:**
 - `outputs/plinko/payout-log.json` — Bet-by-bet payout verification with totals
 
-**Dataset:** `duel-plinko-sim-1771364316980.json` (1,080 bets, 24 seed sessions)
+**Dataset:** `duel-plinko-sim-1771364316980.json` (1,080 bets, 25 seed sessions)

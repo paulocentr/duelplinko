@@ -17,7 +17,7 @@ The system architecture is straightforward: a centralized REST API computes outc
 | Component | Status | Finding |
 |-----------|--------|---------|
 | API structure | ✅ Documented | Clean REST API with complete outcome data |
-| Seed lifecycle | ✅ Sound | Standard commit-reveal with 24/24 verifications |
+| Seed lifecycle | ✅ Sound | Standard commit-reveal with 25/25 verifications |
 | Fairness documentation | ✅ Published | Full algorithm source code on /fairness/verify |
 | Client security (SES) | ✅ Active | Protects against client-side attacks |
 
@@ -119,7 +119,7 @@ The seed lifecycle follows a standard commit-reveal protocol:
 
 This protocol is the foundation of provable fairness. Because the server commits to the seed hash before the player bets, the server cannot change the seed after seeing the wager. Because the player contributes the client seed, the server cannot precompute favorable outcomes (assuming the client seed is non-trivial). **[Evidence: E12, E13, E14]**
 
-In our testing, we performed 24 seed rotations across 3 phases of betting. Each rotation correctly revealed the previous server seed and committed to a new hash for the next segment. All 24 revealed seeds matched their committed hashes exactly. **[Evidence: E15, E29]**
+In our testing, we performed 25 seed rotations across 3 phases of betting. Each rotation correctly revealed the previous server seed and committed to a new hash for the next segment. All 25 revealed seeds matched their committed hashes exactly. **[Evidence: E15, E29]**
 
 ## Fairness Documentation
 
@@ -192,4 +192,4 @@ These are standard characteristics of centralized provably fair casinos. The com
 | Seed rotation records | E14, E15, E29 | ✅ Verified |
 | SES lockdown | E16 | ✅ Observed |
 
-**Dataset:** `duel-plinko-sim-1771364316980.json` (1,080 bets, 24 seed sessions)
+**Dataset:** `duel-plinko-sim-1771364316980.json` (1,080 bets, 25 seed sessions)

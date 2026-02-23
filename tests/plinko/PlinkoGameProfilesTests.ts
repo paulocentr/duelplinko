@@ -15,18 +15,6 @@ describe("Plinko Game Profiles", () => {
         }
     });
 
-    it("Every display table has exactly (rows + 1) entries", () => {
-        for (const risk of ["low", "medium", "high"] as const) {
-            for (let rows = 8; rows <= 16; rows++) {
-                const table = PlinkoGameProfiles.DISPLAY_MULTIPLIERS[risk][rows];
-                expect(table).to.be.an("array");
-                expect(table.length).to.eql(rows + 1,
-                    `${risk}/${rows}: expected ${rows + 1} slots, got ${table.length}`
-                );
-            }
-        }
-    });
-
     it("All API multipliers are positive finite numbers", () => {
         for (const risk of ["low", "medium", "high"] as const) {
             for (let rows = 8; rows <= 16; rows++) {
@@ -98,21 +86,6 @@ describe("Plinko Game Profiles", () => {
             expect(medEdge).to.be.greaterThan(lowEdge,
                 `rows=${rows}: medium edge ${medEdge} should > low ${lowEdge}`
             );
-        }
-    });
-
-    it("API multiplier is within 2% of display multiplier for all slots", () => {
-        for (const risk of ["low", "medium", "high"] as const) {
-            for (let rows = 8; rows <= 16; rows++) {
-                const apiTable = PlinkoGameProfiles.API_MULTIPLIERS[risk][rows];
-                const displayTable = PlinkoGameProfiles.DISPLAY_MULTIPLIERS[risk][rows];
-                for (let slot = 0; slot <= rows; slot++) {
-                    const relError = Math.abs(apiTable[slot] - displayTable[slot]) / displayTable[slot];
-                    expect(relError).to.be.below(0.02,
-                        `${risk}/${rows}/slot${slot}: API ${apiTable[slot]} vs display ${displayTable[slot]}, error ${(relError * 100).toFixed(2)}%`
-                    );
-                }
-            }
         }
     });
 });

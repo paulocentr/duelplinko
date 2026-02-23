@@ -5,7 +5,7 @@
 **Game:** Plinko (Original)\
 **Platform:** [duel.com](https://duel.com)\
 **Audit Version:** 2.0\
-**Dataset SHA-256:** `2000cb5f865263ac2556cc7781682ff66fcd32c9c1230a27bf1ce74638c70c16`
+**Dataset SHA-256:** `9a4dcd3d5a0afaac85d3ad62cf0628843e1f628414abf165022a251ec09a37c2`
 
 ---
 
@@ -16,7 +16,7 @@
 | RTP | 99.9% (0.1% house edge) |
 | Live Bets Tested | 1,080 |
 | Simulated Rounds | 27,000,000 |
-| Parity Rate | 100% (1,070/1,070) |
+| Parity Rate | 100% (1,080/1,080) |
 
 ## Audit Verdict
 
@@ -24,8 +24,8 @@
 |-------|--------|---------|
 | Overall Status | ✅ Pass | Provably Fair |
 | RTP Verified | ✅ Pass | Theoretical RTP independently confirmed at 99.9% |
-| Live ↔ Verifier Parity | ✅ Pass | 1,070/1,070 outcomes match (100%) |
-| Commit-Reveal System | ✅ Pass | 24/24 seed hashes verified |
+| Live ↔ Verifier Parity | ✅ Pass | 1,080/1,080 outcomes match (100%) |
+| Commit-Reveal System | ✅ Pass | 25/25 seed hashes verified |
 | Seed Handling | ✅ Pass | Proper hex-to-bytes encoding confirmed |
 | RNG Analysis | ✅ Pass | HMAC-SHA256 with zero modulo bias |
 | Payout Logic | ✅ Pass | 1,080/1,080 payouts exact |
@@ -48,7 +48,7 @@
 ### What This Audit Guarantees
 
 - Outcomes are deterministic: the same (server seed, client seed, nonce, rows) always produces the same result
-- Live outcomes match verifier re-computation with 100% parity across 1,070 verified bets
+- Live outcomes match verifier re-computation with 100% parity across 1,080 verified bets
 - Randomness is unbiased: `value % 2` on a 32-bit unsigned integer produces a perfect 50/50 split
 - No known exploits were found at the time of this audit
 
@@ -101,13 +101,13 @@ All testing was performed against the live production environment at duel.com us
 | Metric | Value |
 |--------|-------|
 | Total live bets | 1,080 |
-| Seed rotations | 24 |
+| Seed rotations | 25 |
 | Risk levels tested | Low, Medium, High |
 | Row configurations tested | 8, 9, 10, 11, 12, 13, 14, 15, 16 |
 | Game configurations covered | 27 (3 risks × 9 rows) |
 | Bets per configuration | 40 |
-| Verification match rate | 1,070/1,070 (100%) |
+| Verification match rate | 1,080/1,080 (100%) |
 | Payout accuracy | 1,080/1,080 (100%) |
 | Simulated rounds | 27,000,000 (1,000,000 per config) |
 | Dataset file | `duel-plinko-sim-1771364316980.json` |
-| Dataset SHA-256 | `2000cb5f865263ac2556cc7781682ff66fcd32c9c1230a27bf1ce74638c70c16` |
+| Dataset SHA-256 | `9a4dcd3d5a0afaac85d3ad62cf0628843e1f628414abf165022a251ec09a37c2` |

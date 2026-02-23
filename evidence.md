@@ -32,6 +32,7 @@ This appendix catalogs all evidence items referenced throughout the audit report
 **Referenced in:** [Game Logic Verifiability](game-logic-verifiability.md)
 
 ### E06 — Multiplier Display
+**File:** Visible in `capture/capture-02-plinko-game-ui.jpeg`, `capture/capture-03-plinko-low-risk.jpeg`, `capture/capture-04-plinko-high-risk.jpeg`\
 **Description:** The multiplier values displayed at the bottom of the Plinko board for each risk/row combination. Visible in screenshots E03, E04, E05.\
 **Referenced in:** [RNG Algorithm Analysis](rng-algorithm-analysis.md), [Game Logic Verifiability](game-logic-verifiability.md)
 
@@ -41,6 +42,7 @@ This appendix catalogs all evidence items referenced throughout the audit report
 **Referenced in:** [Live Parity Testing](live-parity-testing.md)
 
 ### E08 — Footer and Licensing Information
+**File:** Visible in `capture/capture-05-bet-history-footer.jpeg`\
 **Description:** Visible in E07. Shows: "Duel.com is owned and operated by Immortal Snail LLC, registration number: L22982... licensed and regulated by the Government of the Autonomous Island of Anjouan, Union of Comoros... License No. ALSI-202411026-FI1."\
 **Referenced in:** [System Architecture](system-architecture.md)
 
@@ -69,15 +71,16 @@ This appendix catalogs all evidence items referenced throughout the audit report
 **Referenced in:** [Executive Summary](executive-summary.md), [System Architecture](system-architecture.md), [Operator Trust Analysis](operator-trust-analysis.md), [Exploit Testing](exploit-testing.md)
 
 ### E13 — Client Seed Input
+**File:** Visible in `capture/capture-09-provably-fair-panel.jpeg`\
 **Description:** Visible in E12. The "New client seed" field shows a pre-generated value (0u492dRts9h9BCPV) that the player can modify before rotation.\
 **Referenced in:** [System Architecture](system-architecture.md), [Operator Trust Analysis](operator-trust-analysis.md)
 
 ### E14 — Seed Rotation History
-**Description:** The dataset records 24 seed rotations with timestamps, contexts (e.g., "mid-phase-A-at-50"), revealed seeds, and committed hashes. Each rotation is logged in the `seeds[]` array of the dataset JSON.\
+**Description:** The dataset records 25 seed rotations with timestamps, contexts (e.g., "mid-phase-A-at-50"), revealed seeds, and committed hashes. Each rotation is logged in the `seeds[]` array of the dataset JSON.\
 **Referenced in:** [System Architecture](system-architecture.md), [Live Parity Testing](live-parity-testing.md), [Exploit Testing](exploit-testing.md)
 
 ### E15 — Previously Revealed Server Seeds
-**Description:** From the dataset, all 24 revealed server seeds are available. Example: Seed 1 revealed `b6d2bb3df73995fd53a4f836b0db0e4b5ff61fec6155cda3d6e55d4bc866a585` which hashes to `5548792213b9af3a3cd236cc0e0d4ca7e4bcf0955dccc2501f2ac76f77fd82c1`.\
+**Description:** From the dataset, all 25 revealed server seeds are available. Example: Seed 1 revealed `b6d2bb3df73995fd53a4f836b0db0e4b5ff61fec6155cda3d6e55d4bc866a585` which hashes to `5548792213b9af3a3cd236cc0e0d4ca7e4bcf0955dccc2501f2ac76f77fd82c1`.\
 **Referenced in:** [System Architecture](system-architecture.md)
 
 ### E16 — SES Lockdown Console Warning
@@ -89,15 +92,16 @@ This appendix catalogs all evidence items referenced throughout the audit report
 **Referenced in:** [System Architecture](system-architecture.md), [Exploit Testing](exploit-testing.md)
 
 ### E18 — Dataset Structure
-**Description:** The complete dataset JSON structure showing `meta` (schema version, creation time, phases), `seeds` array (24 rotation records), and `bets` array (1,080 bet records with request and response payloads).\
+**Description:** The complete dataset JSON structure showing `meta` (schema version, creation time, phases), `seeds` array (25 rotation records), and `bets` array (1,080 bet records with request and response payloads).\
 **Referenced in:** [System Architecture](system-architecture.md), [Live Parity Testing](live-parity-testing.md)
 
 ---
 
 ## Data Collection
 
-### E19 — Capture Script Source Code
-**Description:** The Tampermonkey userscript used to automate data collection. Intercepts XHR responses from the Plinko bet and seed rotation APIs, manages 3-phase execution (Low/Medium/High risk), auto-rotates seeds every 50 bets, and exports the complete dataset as JSON. The script was used during live data collection and is not part of the verification codebase.\
+### E19 — Capture Script and Screenshots
+**File:** `capture/capture-01-duel-homepage.jpeg` through `capture/capture-09-provably-fair-panel.jpeg`\
+**Description:** The Tampermonkey userscript used to automate data collection. Intercepts XHR responses from the Plinko bet and seed rotation APIs, manages 3-phase execution (Low/Medium/High risk), auto-rotates seeds every 50 bets, and exports the complete dataset as JSON. The `capture/` directory contains 9 screenshots taken during the live data collection session documenting the platform UI, game configurations, bet history, fairness pages, and provably fair panel.\
 **Referenced in:** [Live Parity Testing](live-parity-testing.md), [RTP Analysis](rtp-analysis.md)
 
 ### E20 — Capture Script Configuration
@@ -110,23 +114,23 @@ This appendix catalogs all evidence items referenced throughout the audit report
 **Referenced in:** [Live Parity Testing](live-parity-testing.md)
 
 ### E22 — Dataset Statistics
-**Description:** Summary statistics extracted from the dataset: 1,080 total bets, 360 per phase, 24 seed rotations (8 per phase), 40 bets per (risk, rows) configuration, session duration approximately 10 minutes.\
+**Description:** Summary statistics extracted from the dataset: 1,080 total bets, 360 per phase, 25 seed rotations, 40 bets per (risk, rows) configuration, session duration approximately 10 minutes.\
 **Referenced in:** [Live Parity Testing](live-parity-testing.md)
 
 ### E23 — Phase A Data (Low Risk)
-**Description:** 360 bets across rows 8-16 at Low risk. Empirical RTP: 97.13%. Seed rotations: 8 (every 50 bets).\
+**Description:** 360 bets across rows 8-16 at Low risk. Empirical RTP: 97.13%.\
 **Referenced in:** [Payout Verification](payout-verification.md)
 
 ### E24 — Phase B Data (Medium Risk)
-**Description:** 360 bets across rows 8-16 at Medium risk. Empirical RTP: 105.91%. Seed rotations: 8.\
+**Description:** 360 bets across rows 8-16 at Medium risk. Empirical RTP: 105.91%.\
 **Referenced in:** [Payout Verification](payout-verification.md)
 
 ### E25 — Phase C Data (High Risk)
-**Description:** 360 bets across rows 8-16 at High risk. Empirical RTP: 109.20%. Seed rotations: 8.\
+**Description:** 360 bets across rows 8-16 at High risk. Empirical RTP: 109.20%.\
 **Referenced in:** [Payout Verification](payout-verification.md)
 
 ### E26 — Seed Rotation Log
-**Description:** All 24 seed rotations with: timestamp, phase, context identifier, revealed server seed, committed hash, client seed, nonce at rotation time. Available in the `seeds[]` array of the dataset.\
+**Description:** All 25 seed rotations with: timestamp, phase, context identifier, revealed server seed, committed hash, client seed, nonce at rotation time. Available in the `seeds[]` array of the dataset.\
 **Referenced in:** [Live Parity Testing](live-parity-testing.md), [Exploit Testing](exploit-testing.md)
 
 ---
@@ -139,19 +143,19 @@ This appendix catalogs all evidence items referenced throughout the audit report
 **Referenced in:** [RNG Algorithm Analysis](rng-algorithm-analysis.md), [Game Logic Verifiability](game-logic-verifiability.md), [Live Parity Testing](live-parity-testing.md), [Operator Trust Analysis](operator-trust-analysis.md), [Exploit Testing](exploit-testing.md)
 
 ### E28 — Verification Script Output
-**Description:** Execution output showing 1,070 verified matches, 0 mismatches, 10 unverifiable (final active seed). 100% match rate on all verifiable bets.\
+**Description:** Execution output showing 1,080 verified matches, 0 mismatches. 100% match rate on all bets.\
 **Referenced in:** [Executive Summary](executive-summary.md), [Live Parity Testing](live-parity-testing.md), [Operator Trust Analysis](operator-trust-analysis.md), [Game Logic Verifiability](game-logic-verifiability.md), [Exploit Testing](exploit-testing.md)
 
-### E29 — Seed Hash Verification (24/24)
-**Description:** All 24 revealed server seeds verified against their committed SHA-256 hashes. `SHA-256(hexDecode(serverSeed)) === serverSeedHashed` for every rotation. 0 mismatches.\
+### E29 — Seed Hash Verification (25/25)
+**Description:** All 25 revealed server seeds verified against their committed SHA-256 hashes. `SHA-256(hexDecode(serverSeed)) === serverSeedHashed` for every rotation. 0 mismatches.\
 **Referenced in:** [Executive Summary](executive-summary.md), [RNG Algorithm Analysis](rng-algorithm-analysis.md), [System Architecture](system-architecture.md), [Live Parity Testing](live-parity-testing.md), [Operator Trust Analysis](operator-trust-analysis.md), [Exploit Testing](exploit-testing.md)
 
 ### E30 — Nonce Sequence Verification
-**Description:** Across all 24 seed segments: 0 nonce gaps, 0 nonce duplicates. Nonces increment sequentially from 0 within each segment, confirming no bets were inserted or removed.\
+**Description:** Across all 25 seed segments: 0 nonce gaps, 0 nonce duplicates. Nonces increment sequentially from 0 within each segment, confirming no bets were inserted or removed.\
 **Referenced in:** [Executive Summary](executive-summary.md), [Live Parity Testing](live-parity-testing.md), [Edge Case Analysis](edge-case-analysis.md), [Operator Trust Analysis](operator-trust-analysis.md), [Exploit Testing](exploit-testing.md)
 
-### E31 — Result Parity Output (1,070/1,070)
-**Description:** The verification script confirmed that all 1,070 verifiable bets produced identical final_slot values when computed independently. Match rate: 100.000%.\
+### E31 — Result Parity Output (1,080/1,080)
+**Description:** The verification script confirmed that all 1,080 bets produced identical final_slot values when computed independently. Match rate: 100.000%.\
 **Referenced in:** [Executive Summary](executive-summary.md), [Live Parity Testing](live-parity-testing.md)
 
 ### E32 — Sample Bet Verification Walkthrough
@@ -187,7 +191,7 @@ This appendix catalogs all evidence items referenced throughout the audit report
 **Referenced in:** [Executive Summary](executive-summary.md), [Game Logic Verifiability](game-logic-verifiability.md), [Edge Case Analysis](edge-case-analysis.md)
 
 ### E39 — Nonce Continuity Across Segments
-**Description:** Analysis of nonce sequences across all 24 seed segments confirming sequential ordering, zero gaps, and zero duplicates.\
+**Description:** Analysis of nonce sequences across all 25 seed segments confirming sequential ordering, zero gaps, and zero duplicates.\
 **Referenced in:** [Executive Summary](executive-summary.md), [Live Parity Testing](live-parity-testing.md), [Edge Case Analysis](edge-case-analysis.md), [Exploit Testing](exploit-testing.md)
 
 ### E40 — Win/Loss Ratio by Configuration
@@ -247,7 +251,7 @@ This appendix catalogs all evidence items referenced throughout the audit report
 **Referenced in:** [Exploit Testing](exploit-testing.md)
 
 ### E51 — Failure Mode Detection Matrix
-**Description:** Table of 6 potential failure modes with detection methods applied and results: early seed reveal (no evidence), hash mismatch (24/24 match), nonce irregularities (0 gaps/duplicates), non-deterministic output (1,070/1,070 match), hidden entropy (code audit clean), verifier parity (100%).\
+**Description:** Table of 6 potential failure modes with detection methods applied and results: early seed reveal (no evidence), hash mismatch (25/25 match), nonce irregularities (0 gaps/duplicates), non-deterministic output (1,080/1,080 match), hidden entropy (code audit clean), verifier parity (100%).\
 **Referenced in:** [Exploit Testing](exploit-testing.md)
 
 ---
@@ -256,11 +260,11 @@ This appendix catalogs all evidence items referenced throughout the audit report
 
 ### E52 — Simulation Summary (27M Rounds)
 **File:** `outputs/plinko/simulation-summary.json`\
-**Description:** Monte Carlo simulation results: 27,000,000 total rounds (1,000,000 per configuration), 27 configurations, API-precision multipliers, aggregate simulated RTP 99.87%, aggregate theoretical RTP 99.95%, execution time 450 seconds.\
+**Description:** Monte Carlo simulation results: 27,000,000 total rounds (1,000,000 per configuration), 27 configurations, API-precision multipliers, aggregate simulated RTP 99.87%, aggregate theoretical RTP 99.90%, execution time 522 seconds.\
 **Referenced in:** [RTP Analysis](rtp-analysis.md)
 
 ### E53 — Per-Mode Convergence Data
-**Description:** Simulated vs theoretical RTP for each of 27 modes with standard errors. Example: low_8rows (100.05% sim, 99.98% theo, ±0.057%), high_16rows (99.46% sim, 99.95% theo, ±0.605%).\
+**Description:** Simulated vs theoretical RTP for each of 27 modes with standard errors. Example: low_8rows (99.97% sim, 99.90% theo, ±0.057%), high_16rows (99.40% sim, 99.90% theo, ±0.604%).\
 **Referenced in:** [RTP Analysis](rtp-analysis.md)
 
 ### E54 — Convergence Charts (27 + Aggregate)
